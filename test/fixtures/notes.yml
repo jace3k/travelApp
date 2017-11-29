@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip_id: 
+  user_id: 
+  content: MyString
+  date: 2017-10-30 17:29:02
+
+two:
+  trip_id: 
+  user_id: 
+  content: MyString
+  date: 2017-10-30 17:29:02

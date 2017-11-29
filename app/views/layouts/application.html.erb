@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App3</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= link_to "Home", root_url %>
+<%= link_to "Userzy", users_path %>
+<%= link_to "Tripy", trips_path %>  <br>
+<hr>
+
+<% if logged_in? %>
+  Zalogowany jako <b><%= current_user.username %></b> <br>
+  <%= link_to "Profil", current_user %>
+  <%= link_to "Wyloguj", logout_path, method: :delete %>
+<% else %>
+  <b>Wylogowany</b>
+  <br>
+  <%= link_to "Zaloguj", login_path %>
+<% end %>
+<hr>
+
+<%= yield %>
+
+</body>
+</html>

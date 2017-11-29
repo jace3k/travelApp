@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  town_id: 
+  town_id: 
+  departure: 
+  arrive: 
+  price: 1.5
+  tickettype_id: 
+
+two:
+  user_id: 
+  town_id: 
+  town_id: 
+  departure: 
+  arrive: 
+  price: 1.5
+  tickettype_id: 

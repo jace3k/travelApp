@@ -1,0 +1,13 @@
+<h1> Witaj na stronie głównej. </h1>
+<%= Time.now %>
+
+<p>
+  <% if logged_in? %>
+  <h2>Twoje Tripy:</h2>
+  <ul>
+    <% current_user.trips.each do |trip| %>
+        <li><%= link_to trip.name, trip %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</p>

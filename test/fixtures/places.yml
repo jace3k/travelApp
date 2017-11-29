@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  town_id: 
+  place_name_id: 
+  name: MyString
+  open: 2017-11-05 13:38:48
+  close: 2017-11-05 13:38:48
+
+two:
+  town_id: 
+  place_name_id: 
+  name: MyString
+  open: 2017-11-05 13:38:48
+  close: 2017-11-05 13:38:48
