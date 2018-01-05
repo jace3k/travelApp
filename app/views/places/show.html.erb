@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @place.name %>
+</p>
+
+<p>
+  <strong>Coords:</strong>
+  <%= @place.coords %>
+</p>
+
+<p>
+  <strong>Placetype:</strong>
+  <%= @place.type.name %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @place.town.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.description %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
+<hr>
+<h2>Opinie:</h2>
+<% if @place.reviews.length == 0 %>
+  Nie ma opinii.
+<% else %>
+  <% @place.reviews.each do |review| %>
+    <h4><%= review.user.username %>: <%= review.content %></h4>
+  <% end %>
+<% end %>
+<% if logged_in? %>
+  <%= link_to "Dodaj opinie", new_place_review_path(@place) %>
+<% end %>

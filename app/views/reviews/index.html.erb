@@ -1,0 +1,27 @@
+<h1>Listing reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @place.reviews.each do |review| %>
+      <tr>
+        <td><%= review.user.username %></td>
+        <td><%= review.content %></td>
+        <td><%= link_to 'Show', place_review_path(@place, review) %></td>
+        <td><%= link_to 'Edit', edit_place_review_path(@place, review) %></td>
+        <td><%= link_to 'Destroy', place_review_path(@place, review), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_place_review_path %>
