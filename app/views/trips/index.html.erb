@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @trips.each do |trip| %>
+    <% current_user.trips.each do |trip| %>
       <tr>
         <td><%= trip.name %></td>
         <td><%= trip.start_date %></td>

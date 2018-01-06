@@ -3,13 +3,13 @@
 one:
   name: MyString
   coords: MyString
-  placetype_id_id: 
-  town_id_id: 
+  type_id: 
+  town_id: 
   description: MyString
 
 two:
   name: MyString
   coords: MyString
-  placetype_id_id: 
-  town_id_id: 
+  type_id: 
+  town_id: 
   description: MyString

@@ -18,7 +18,7 @@ class TripsControllerTest < ActionController::TestCase
 
   test "should create trip" do
     assert_difference('Trip.count') do
-      post :create, trip: { end_date: @trip.end_date, start_date: @trip.start_date, town_id_id: @trip.town_id_id }
+      post :create, trip: { end_date: @trip.end_date, start_date: @trip.start_date }
     end
 
     assert_redirected_to trip_path(assigns(:trip))
@@ -35,7 +35,7 @@ class TripsControllerTest < ActionController::TestCase
   end
 
   test "should update trip" do
-    patch :update, id: @trip, trip: { end_date: @trip.end_date, start_date: @trip.start_date, town_id_id: @trip.town_id_id }
+    patch :update, id: @trip, trip: { end_date: @trip.end_date, start_date: @trip.start_date}
     assert_redirected_to trip_path(assigns(:trip))
   end
 
@@ -45,5 +45,10 @@ class TripsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to trips_path
+  end
+
+  test "should join user to trip" do
+    post :join, username: 'fajnyziom'
+    assert_true @trip.users.include?(User.find(3))
   end
 end

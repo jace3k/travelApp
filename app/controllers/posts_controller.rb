@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
+  before_action :require_token
   # GET /posts
   # GET /posts.json
   def index
@@ -33,7 +34,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to [@trip, @post], notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.json { render json: {message: 'Dodano post', content: @post.content} }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }

@@ -39,5 +39,5 @@ module SessionsHelper
     ]}
     render json: errors, status: :unauthorized
   end
-  
+
 end

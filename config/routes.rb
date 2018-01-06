@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :friendships
 
   # get      'sessions/new'
   root     'static#index'
@@ -8,21 +7,19 @@ Rails.application.routes.draw do
   post     '/login',              to: 'sessions#create'
   delete   '/logout',             to: 'sessions#destroy'
 
-  get      '/trips/:id/join',     to: 'trips#join'      # zapis na tripa
-  get      '/trips/:id/unjoin',   to: 'trips#unjoin'    # opuszczanie tripa
+  get      '/trips/:id/join',     to: 'trips#join_html'
+  get     '/trips/:id/join',     to: 'trips#join'      # zapis na tripa
+  get     '/trips/:id/unjoin',   to: 'trips#unjoin'    # opuszczanie tripa
 
-  get      '/trips/:id/addplace', to: 'trips#addplace'
-  get      '/trips/:id/remove',   to: 'trips#remove'
+  get      '/trips/:id/places',   to: 'trips#places'
+  get      '/trips/:id/places/:place', to: 'trips#addplace'
+  delete   '/trips/:id/places/:place',   to: 'trips#removeplace'
 
+  get     '/trips/:id/posts',     to: 'trips#posts'
 
-  get      '/users/:id/addfriend', to: 'users#addfriend'
-
-  # autentykacja
-  get      '/mytrips',               to: 'static#mytrips'
-  get      '/myfriends',               to: 'static#myfriends'
-
-  get      '/trips/:id/places',               to: 'trips#places'
-
+  get     '/places/:id/reviews',     to: 'places#reviews'
+  get     '/places/:id/reviews/:reviewid',     to: 'reviews#show'
+  delete  '/places/:id/reviews/:reviewid',     to: 'reviews#destroy'
 
   resources :towns
   resources :types

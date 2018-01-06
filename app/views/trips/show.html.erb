@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @trip.name %>
@@ -21,14 +20,6 @@
 <%= link_to 'Back', trips_path %>
 
 <hr>
-
-<% if logged_in? %>
-  <% unless current_user.joined?(@trip) %>
-    <%= link_to( "Dołącz do wycieczki", action: :join) %>
-  <% else %>
-    <%= link_to( "Odejdź z wycieczki", action: :unjoin) %>
-  <% end %>
-<% end %>
 
 <hr>
 
@@ -59,7 +50,7 @@
 <% @places = Place.all %>
 <% @places.each do |place| %>
 <% unless place.added?(@trip) %>
-  <%= link_to place.name, action: :addplace, :place_id_to_add => place.id %><br>
+  <%= link_to place.name, action: :addplace %><br>
 <% end %>
 <% end %>
 
@@ -74,6 +65,5 @@
   </li>
 <% end %>
 </ul>
-<% if current_user.joined?(@trip) %>
+
 <h4><%= link_to "dodaj post", new_trip_post_path(@trip) %></h4>
-<% end %>

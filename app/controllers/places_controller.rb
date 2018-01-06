@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
+  before_action :require_token
   # GET /places
   # GET /places.json
   def index
@@ -55,10 +56,12 @@ class PlacesController < ApplicationController
   # DELETE /places/1.json
   def destroy
     @place.destroy
-    respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render json: { message: 'Usunieto miejsce' }
+  end
+
+  def reviews
+    @place = Place.find(params[:id])
+    render :reviews
   end
 
   private

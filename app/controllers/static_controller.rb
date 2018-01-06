@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  before_action :require_token, only: []
+  before_action :require_token, only: [:mytrips]
 
   def index
     @users = User.all
@@ -11,6 +11,4 @@ class StaticController < ApplicationController
   def mytrips
   end
 
-  def myfriends
-  end
 end

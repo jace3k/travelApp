@@ -1,21 +1,28 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
+  before_action :require_token
   # GET /reviews
   # GET /reviews.json
   def index
-    @place = Place.find(params[:place_id])
+    @place = Place.find(params[:id])
     @review = @place.reviews.all
   end
 
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    begin
+      @place = Place.find(params[:id])
+      @review = @place.reviews.find(params[:reviewid])
+    rescue Exception
+      render json: {message: 'Nie znaleziono id.'}
+    end
   end
 
   # GET /reviews/new
   def new
-    @place = Place.find(params[:place_id])
+    @place = Place.find(params[:id])
     @review = @place.reviews.new
   end
 
@@ -26,14 +33,14 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @place = Place.find(params[:place_id])
+    @place = Place.find(params[:id])
     @review = @place.reviews.new(review_params)
     @review.user = current_user
 
     respond_to do |format|
       if @review.save
         format.html { redirect_to [@place, @review], notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+        format.json { render json: {message: 'Dodano opinie', content: @review.content} }
       else
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -58,18 +65,25 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-    @review.destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
+    begin
+      @place = Place.find(params[:id])
+      @review = @place.reviews.find(params[:reviewid])
+      @review.destroy
+    rescue Exception
+      render json: {message: 'Nie znaleziono id.'}
     end
+    render json: { message: 'Usunięto opinie.' }
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @place = Place.find(params[:place_id])
-      @review = Review.find(params[:id])
+      begin
+        @place = Place.find(params[:id])
+        @review = @place.reviews.find(params[:reviewid])
+      rescue Exception
+        render json: {message: 'Nie ma takiego id.'}
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

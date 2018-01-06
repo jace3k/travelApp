@@ -1,1 +1,5 @@
-json.extract! @review, :id, :place_id_id, :user_id_id, :content, :created_at, :updated_at
+json.id @review.id
+json.place @review.place.name
+json.author @review.user.username
+json.content @review.content
+json.created_at @review.created_at
