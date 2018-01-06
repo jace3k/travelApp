@@ -1,29 +1,58 @@
-<p>WSTĘPNE API</p>
-<p>Logowanie</p>
-�	/login � zaloguj si�
-�	/logout � wyloguj
-�	/users - POST - rejestracja
+<tt>WSTĘPNE API</tt>
+
+
+Logowanie
+
+>	/login > zaloguj się
+
+>	/logout > wyloguj
+
+>	/users > POST > rejestracja
+
+
 Trips
-�	/trips � wszystkie tripy zalogowanego usera
-�	/trips � POST - tworzy trip
-�	/trips/:id � tw�j trip konkretny na kt�rym jeste�
-�	/trips/:id � DELETE - usuwanie tripa
-�	/trips/:id/edit � PUT - edycja tripa
-�	/trips/:id/join � do��cz zioma do wybranego tripa
-�	/trips/:id/unjoin � wywal zioma
-�	/trips/:id/places/:id � dodaj miejsce do tripa
-�	/trips/:id/places/:id � usu� miejsce z tripa
-�	/trips/:id/places � miejsca w tripie
-�	/trips/:id/posts � posty w tripie
-�	/trips/:id/posts � POST -nowy post do tripa
+
+>	/trips > wszystkie tripy zalogowanego usera
+
+>	/trips > POST > tworzy trip
+
+>	/trips/:id > twój trip konkretny na kt>rym jeste>
+
+>	/trips/:id > DELETE > usuwanie tripa
+
+>	/trips/:id/edit > PUT > edycja tripa
+
+>	/trips/:id/join > do>>cz zioma do wybranego tripa
+
+>	/trips/:id/unjoin > wywal zioma
+
+>	/trips/:id/places/:id > dodaj miejsce do tripa
+
+>	/trips/:id/places/:id > usu> miejsce z tripa
+
+>	/trips/:id/places > miejsca w tripie
+
+>	/trips/:id/posts > posty w tripie
+
+>	/trips/:id/posts > POST > nowy post do tripa
+
+
 Users
 
-�	/users/:id � profil
+>	/users/:id > profil
+
+
 Places
-�	/places � wszystkie miejsca
-�	/places/:id/reviews � opinie o danym miejscu
-�	/places/:id/reviews/:id - opinia
-�	/places/:id/reviews/:id - DELETE - usuwanie opinii
-�	/places/:id/reviews/new � POST - dodawanie opinii
-�	/places/:id/reviews/edit � POST - edycja opinii
-�	/places/:id � szczeg��y o danym miejscu
+>	/places > wszystkie miejsca
+
+>	/places/:id/reviews > opinie o danym miejscu
+
+>	/places/:id/reviews/:id > opinia
+
+>	/places/:id/reviews/:id > DELETE > usuwanie opinii
+
+>	/places/:id/reviews/new > POST > dodawanie opinii
+
+>	/places/:id/reviews/edit > POST > edycja opinii
+
+>	/places/:id > szczeg>>y o danym miejscu
