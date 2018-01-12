@@ -3,13 +3,13 @@
 one:
   name: MyString
   coords: MyString
-  type_id: 
-  town_id: 
+  type_id: 1
+  town_id: 1
   description: MyString
 
 two:
-  name: MyString
-  coords: MyString
-  type_id: 
-  town_id: 
-  description: MyString
+  name: MyString2
+  coords: MyStrinjg
+  type_id: 2
+  town_id: 2
+  description: MyStringm

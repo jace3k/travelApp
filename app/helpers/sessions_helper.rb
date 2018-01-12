@@ -32,11 +32,7 @@ module SessionsHelper
   end
 
   def render_unauthorized(message)
-    errors = { errors: [
-      {
-        detail: message
-      }
-    ]}
+    errors = { message: message}
     render json: errors, status: :unauthorized
   end
 

@@ -43,20 +43,7 @@ towns = Town.create(
   ]
 )
 
-trips = Trip.create(
-  [
-    {
-      start_date: '30/10/2016',
-      end_date: '30/10/2017',
-      name: 'Podroż w nieznane'
-    },
-    {
-      start_date: '20/10/2016',
-      end_date: '10/10/2017',
-      name: 'Wyprawa po ziolo'
-    }
-  ]
-)
+
 
 
 types = Type.create(

@@ -60,78 +60,40 @@ class TripsController < ApplicationController
   # DELETE /trips/1
   # DELETE /trips/1.json
   def destroy
-    @trip.destroy
-    respond_to do |format|
-      if current_user.trips.include?(@trip) && trip
-        format.html { redirect_to trips_url, notice: 'Trip was successfully destroyed.' }
-        format.json { render json: {message: "Usunięto tripa."} }
-      else
-        format.html { redirect_to trips_url, notice: 'Brak uprawnien.' }
-        format.json { render json: {message: 'kupka.'} }
-      end
+    if current_user.trips.include?(@trip)
+      @trip.destroy
+      render json: {message: "Usunięto tripa."}
+    else
+      render json: {message: 'Brak uprawnień.'}
     end
   end
 
   def join
-    respond_to do |format|
-      user = User.find_by(username: params[:user][:username])
-      if user
-        format.html {
-          unless @trip.joined?(user)
-            @trip.users.append(user)
-          end
-          redirect_to @trip, notice: 'Dodano ziomeczka.'
-        }
-        format.json {
-          unless @trip.joined?(user)
-            @trip.users.append(user)
-            render json: { message: 'Dodano ziomeczka.', username: params[:trip][:username] }
-          else
-            render json: { message: 'Ziomeczek już jest.', username: params[:trip][:username] }
-          end
-        }
+    user = User.find_by(username: params[:username])
+    if user
+      unless @trip.joined?(user)
+        @trip.users.append(user)
+        render json: { message: 'Dodano ziomeczka.', username: params[:username] }
       else
-        format.html {
-          redirect_to @trip, notice: 'Nie dziala cos.'
-        }
-        format.json {
-          render json: { message: 'Nie dodano ziomeczka.' }
-        }
+        render json: { message: 'Ziomeczek już jest.', username: params[:username] }
       end
+    else
+      render json: { message: 'Nie ma takiego ziomeczka.' }
     end
   end
 
   def unjoin
-    respond_to do |format|
-      user = User.find_by(username: params[:trip][:username])
-      if user
-        format.html {
-          if @trip.joined?(user)
-            @trip.users.delete(user)
-          end
-          redirect_to @trip, notice: 'Wywalono ziomeczka.'
-        }
-        format.json {
-          if @trip.joined?(user)
-            @trip.users.delete(user)
-            render json: { message: 'Wywalono ziomeczka.', username: params[:trip][:username] }
-          else
-            render json: { message: 'Ziomeczka nie ma.', username: params[:trip][:username] }
-          end
-        }
+    user = User.find_by(username: params[:username])
+    if user
+      if @trip.joined?(user)
+        @trip.users.delete(user)
+        render json: { message: 'Wywalono ziomeczka.', username: params[:username] }
       else
-        format.html {
-          redirect_to @trip, notice: 'Nie dziala cos.'
-        }
-        format.json {
-          render json: { message: 'Nie wywalono ziomeczka.' }
-        }
+        render json: { message: 'Ziomeczek nie zapisał sie na tego tripa.', username: params[:username] }
       end
+    else
+      render json: { message: 'Nie ma takiego ziomeczka.' }
     end
-  end
-
-  def join_html
-    render 'join'
   end
 
   def addplace
@@ -179,6 +141,7 @@ class TripsController < ApplicationController
 
   def places
     @current_trip = Trip.find(params[:id])
+
   end
 
   def posts

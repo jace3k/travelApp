@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   post     '/login',              to: 'sessions#create'
   delete   '/logout',             to: 'sessions#destroy'
 
-  get      '/trips/:id/join',     to: 'trips#join_html'
+  #get      '/trips/:id/join',     to: 'trips#join_html'
   get     '/trips/:id/join',     to: 'trips#join'      # zapis na tripa
   get     '/trips/:id/unjoin',   to: 'trips#unjoin'    # opuszczanie tripa
 
   get      '/trips/:id/places',   to: 'trips#places'
-  get      '/trips/:id/places/:place', to: 'trips#addplace'
+  get      '/trips/:id/places/addplace', to: 'trips#addplace'
   delete   '/trips/:id/places/:place',   to: 'trips#removeplace'
 
   get     '/trips/:id/posts',     to: 'trips#posts'

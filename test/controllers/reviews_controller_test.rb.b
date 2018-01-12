@@ -6,7 +6,7 @@ class ReviewsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, :place_id => 1 
     assert_response :success
     assert_not_nil assigns(:reviews)
   end
