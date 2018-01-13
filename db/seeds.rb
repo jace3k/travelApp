@@ -55,7 +55,7 @@ types = Type.create(
       name: 'Restauracja'
     },
     {
-      name: 'Kupka'
+      name: 'Plac zabaw'
     }
   ]
 )
@@ -69,6 +69,22 @@ places = Place.create(
       type: types.find(1).first,
       town: towns.last,
       description: 'Znajdziesz tutaj wiele ciekawych eksponatow.'
+    }
+  ]
+)
+
+
+reviews = Review.create(
+  [
+    {
+      place: places.find(1).first,
+      user: users.find(1).first,
+      content: 'Swietne miejsce, polecam!'
+    },
+    {
+      place: places.find(2).first,
+      user: users.find(1).first,
+      content: 'Słabe miejsce. Nie polecam!'
     }
   ]
 )
