@@ -68,23 +68,32 @@ places = Place.create(
       coords: '123 123',
       type: types.find(1).first,
       town: towns.last,
-      description: 'Znajdziesz tutaj wiele ciekawych eksponatow.'
-    }
-  ]
-)
+      description: 'Znajdziesz tutaj wiele ciekawych eksponatow.',
+      reviews: Review.create(
+        [
+          {
+            user: users.find(1).first,
+            content: 'Bardzo fajne miejsce.'
+          }
+        ]
+      )
 
-
-reviews = Review.create(
-  [
-    {
-      place: places.find(1).first,
-      user: users.find(1).first,
-      content: 'Swietne miejsce, polecam!'
     },
     {
-      place: places.find(2).first,
-      user: users.find(1).first,
-      content: 'Słabe miejsce. Nie polecam!'
+      name: 'Restauracja stacha',
+      coords: '123 123',
+      type: types.find(2).first,
+      town: towns.last,
+      description: 'Jedzonko.',
+      reviews: Review.create(
+        [
+          {
+            user: users.find(1).first,
+            content: 'Słabe miejsce. Nie polecam!'
+          }
+        ]
+      )
+
     }
   ]
 )
