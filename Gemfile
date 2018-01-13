@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'has_secure_token'
 
+gem 'json', '1.8.1'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
