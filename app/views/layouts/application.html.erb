@@ -5,23 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 <body>
-<% if logged_in? %>
-  Zalogowany jako <%= current_user.name %>
-  <%= link_to "Profil", current_user %>
-  <%= link_to "Wyloguj", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Zaloguj", login_path %>
-<% end %>
-<hr>
-<%= link_to "Home", root_url %>
-<%= link_to "Users", users_path %>
-<%= link_to "Trips", trips_path %>
-<%= link_to "Places", places_path %>
-<hr>
-
 <%= yield %>
-
 </body>
 </html>
