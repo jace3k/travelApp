@@ -1,5 +1,7 @@
-json.current_user current_user.username
 json.trips current_user.trips do |trip|
-  json.extract! trip, :id, :start_date, :end_date, :name
-  json.url trip_url(trip, format: :json)
+  json.id trip.id
+  json.trip trip.name
+  json.town trip.town.name
+  json.places_count trip.places.count
+  json.users_count trip.users.count
 end

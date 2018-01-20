@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230202940) do
+ActiveRecord::Schema.define(version: 20180120174003) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -61,7 +61,10 @@ ActiveRecord::Schema.define(version: 20171230202940) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "town_id"
   end
+
+  add_index "trips", ["town_id"], name: "index_trips_on_town_id"
 
   create_table "trips_places", force: true do |t|
     t.integer  "trip_id"
