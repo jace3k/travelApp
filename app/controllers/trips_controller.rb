@@ -76,10 +76,12 @@ class TripsController < ApplicationController
         @trip.users.append(user)
         render json: { message: 'Dodano ziomeczka.', username: params[:username] }
       else
-        render json: { message: 'Ziomeczek już jest.', username: params[:username] }
+        @trip.errors.add(:username, 'nie ma takiego użytkownika')
+        render json: { errors: @trip.errors }, status: :not_found
       end
     else
-      render json: { message: 'Nie ma takiego ziomeczka.' }
+      @trip.errors.add(:username, 'nie ma takiego użytkownika')
+      render json: { errors: @trip.errors }, status: :not_found
     end
   end
 

@@ -5,7 +5,6 @@ class Trip < ActiveRecord::Base
   belongs_to :town
   belongs_to :user
 
-
   def joined?(user)
     self.users.include?(user)
   end
