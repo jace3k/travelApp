@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get     '/trips/:id/unjoin',   to: 'trips#unjoin'    # opuszczanie tripa
 
   get      '/trips/:id/places',   to: 'trips#places'
-  get      '/trips/:id/places/addplace', to: 'trips#addplace'
+  get      '/trips/:id/addplace', to: 'trips#addplace'
   delete   '/trips/:id/places/:place',   to: 'trips#removeplace'
 
   get     '/trips/:id/posts',     to: 'trips#posts'
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get     '/places/:id/reviews',     to: 'places#reviews'
   get     '/places/:id/reviews/:reviewid',     to: 'reviews#show'
   delete  '/places/:id/reviews/:reviewid',     to: 'reviews#destroy'
+  get     '/towns/:id/places',           to: 'towns#places'
 
   resources :towns
   resources :types
