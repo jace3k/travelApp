@@ -34,6 +34,7 @@ class TripsController < ApplicationController
     respond_to do |format|
       if @trip.save
         @trip.users.append(current_user)
+        @trip.user = @current_user
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render json: {message: 'Utworzono tripa.', name: @trip.name} }
       else
