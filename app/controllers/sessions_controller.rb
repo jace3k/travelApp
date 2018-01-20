@@ -24,7 +24,9 @@ class SessionsController < ApplicationController
           render 'new'
         }
         format.json {
-          render json: { message: 'Niepoprawne dane' }
+          render json: {
+            errors: { login: ['niepoprawne dane'] }
+          }, status: :not_found
         }
       end
     end
