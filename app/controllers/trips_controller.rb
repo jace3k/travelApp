@@ -36,7 +36,7 @@ class TripsController < ApplicationController
         @trip.users.append(current_user)
         @trip.user = @current_user
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render json: {message: 'Utworzono tripa.', name: @trip.name} }
+        format.json { render json: {message: 'Utworzono tripa.', name: @trip.name}, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
@@ -63,9 +63,10 @@ class TripsController < ApplicationController
   def destroy
     if current_user.trips.include?(@trip)
       @trip.destroy
-      render json: {message: "Usunięto tripa."}
+      render json: {message: "usunięto tripa"}
     else
-      render json: {message: 'Brak uprawnień.'}
+      @trip.errors.add(:permissions, 'brak uprawnień')
+      render json: {errors: @trip.errors}
     end
   end
 
@@ -74,10 +75,10 @@ class TripsController < ApplicationController
     if user
       unless @trip.joined?(user)
         @trip.users.append(user)
-        render json: { message: 'Dodano ziomeczka.', username: params[:username] }
+        render json: { message: 'dodano ziomeczka.', username: params[:username] }, status: :ok
       else
-        @trip.errors.add(:username, 'nie ma takiego użytkownika')
-        render json: { errors: @trip.errors }, status: :not_found
+        @trip.errors.add(:username, 'użytkownik już należy do tego tripa.')
+        render json: { errors: @trip.errors }, status: :conflict
       end
     else
       @trip.errors.add(:username, 'nie ma takiego użytkownika')
