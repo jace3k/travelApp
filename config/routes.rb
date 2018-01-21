@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get      '/trips/:id/places',   to: 'trips#places'
   get      '/trips/:id/addplace', to: 'trips#addplace'
-  delete   '/trips/:id/places/:place',   to: 'trips#removeplace'
+  get      '/trips/:id/removeplace',   to: 'trips#removeplace'
 
   get     '/trips/:id/posts',     to: 'trips#posts'
 
