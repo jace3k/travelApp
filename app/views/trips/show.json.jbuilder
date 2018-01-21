@@ -19,5 +19,6 @@ if current_user.trips.include?(@trip)
     json.town place.town.name
     json.type place.type.name
     json.description place.description
+    json.address place.address
   end
 end
