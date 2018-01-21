@@ -34,19 +34,23 @@ towns = Town.create(
   [
     {
       name: 'Wrocław',
-      description: 'Polska dolina krzemowa i jedno z największych miast akademickich'
+      description: 'Polska dolina krzemowa i jedno z największych miast akademickich',
+      photo_url: '/assets/1.jpg'
     },
     {
       name: 'Warszawa',
-      description: 'Stolica Polski, centrum polskiej kultury i polityki'
+      description: 'Stolica Polski, centrum polskiej kultury i polityki',
+      photo_url: '/assets/2.jpg'
     },
     {
       name: 'Gdańsk',
-      description: 'wiatowa stolica bursztynu i miasto Lecha Wałęsy'
+      description: 'Światowa stolica bursztynu i miasto Lecha Wałęsy',
+      photo_url: '/assets/3.jpg'
     },
     {
       name: 'Kraków',
-      description: 'Miasto ze smokiem i ponad tysiąc letnią historią'
+      description: 'Miasto ze smokiem i ponad tysiąc letnią historią',
+      photo_url: '/assets/4.jpg'
     }
   ]
 )
@@ -93,7 +97,7 @@ places = Place.create(
   [
     {
       name: 'Muzeum narodowe',
-      address: '123 123',
+      address: 'Aleje Jerozolimskie 3',
       type: Type.find(1),
       town: Town.find(2),
       description: 'Największa kolekcja zbiorów w Polsce',
@@ -108,7 +112,7 @@ places = Place.create(
     },
     {
       name: 'Restaucracja Raj',
-      address: '133 143',
+      address: 'Planu 6-letniego 4',
       type: Type.find(2),
       town: Town.find(2),
       description: 'Restauracja firmowana nazwiskiem Magdy Gesler',
@@ -131,7 +135,7 @@ places = Place.create(
     },
     {
       name: 'Plac zabaw na nadwiślański',
-      address: '123 223',
+      address: 'Narutowicza 34',
       type: Type.find(3),
       town: Town.find(2),
       description: 'Największa kolekcja zbiorów w Polsce',
@@ -150,7 +154,7 @@ places = Place.create(
     },
     {
       name: 'Teatr Polski',
-      address: '143 123',
+      address: 'Lecha Kaczyńskiego 156',
       type: Type.find(4),
       town: Town.find(2),
       description: 'Czołowi akotrzy, najlepsi polscy reżyserzy',
@@ -165,7 +169,7 @@ places = Place.create(
     },
     {
       name: 'Filharmonia Warszawska',
-      address: '183 143',
+      address: 'Grunwaldzka 34',
       type: Type.find(5),
       town: Town.find(2),
       description: 'Filharmonia zlokalizowana w centrum Warszawy',
@@ -188,14 +192,14 @@ places = Place.create(
     },
 	{
       name: 'Stadion Narodowy',
-      address: '183 193',
+      address: 'aleja Poniatowskiego 1',
       type: Type.find(6),
       town: Town.find(2),
       description: 'Oficjalny stadion polskiej reprezentacji'
     },
 	{
       name: 'Kino Polonia',
-      address: '112 183',
+      address: 'Racławicka 194',
       type: Type.find(7),
       town: Town.find(2),
       description: 'Kino z ponad 30-letnią tradycją, idealnie dla rodzin',
@@ -218,7 +222,7 @@ places = Place.create(
     },
 	{
       name: 'Park Mokotowski',
-      address: '110 103',
+      address: 'Grobelna 3',
       type: Type.find(8),
       town: Town.find(2),
       description: 'Park mający ponad 10 akwenów wodnych oraz bogatą infrastrukturę'
@@ -226,7 +230,7 @@ places = Place.create(
     },
     {
       name: 'Family Park - Galeria Mokotów',
-      address: '134 129',
+      address: 'Wiślana 154',
       type: Type.find(9),
       town: Town.find(2),
       description: 'Miejsce dla Ciebie i Twojego dziecka',
@@ -249,7 +253,7 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Varsovia',
-      address: '100 129',
+      address: 'Kujawska 92',
       type: Type.find(10),
       town: Town.find(2),
       description: 'Basen sprotowy wraz z jacuzzi',
@@ -264,7 +268,7 @@ places = Place.create(
     },
 	{
       name: 'Muzeum Miejskie Wrocławia',
-      address: '293 269',
+      address: 'Śląska 34',
       type: Type.find(1),
       town: Town.find(1),
       description: 'Zbiory przedstawiające przedwojenną historię Wrocławia',
@@ -283,7 +287,7 @@ places = Place.create(
     },
     {
       name: 'Restaucracja Bohema',
-      address: '233 243',
+      address: 'Ugory 172',
       type: Type.find(2),
       town: Town.find(1),
       description: 'Tradycyjna polska kuchnia',
@@ -302,14 +306,14 @@ places = Place.create(
     },
      {
       name: 'Plac zabaw',
-      address: '223 287',
+      address: 'Majowa 91',
       type: Type.find(3),
       town: Town.find(1),
       description: 'Osiedlowy plac zabaw na wrocławskim Biskupinie'
     },
     {
       name: 'Teatr Polski',
-      address: '243 223',
+      address: 'Siedleckiego 92',
       type: Type.find(4),
       town: Town.find(1),
       description: 'Samorządowa instytuacja kultury od 1949 roku',
@@ -328,7 +332,7 @@ places = Place.create(
     },
     {
       name: 'Narodowe Forum Muzyki',
-      address: '263 299',
+      address: 'Sobieskiego 56',
       type: Type.find(5),
       town: Town.find(1),
       description: 'Najnowocześniejszy obiekt na kulturalnej mapie Wrocławia',
@@ -351,10 +355,10 @@ places = Place.create(
     },
 	{
       name: 'Stadion Wrocław',
-      address: '253 211',
+      address: 'aleja Śląska 1',
       type: Type.find(6),
       town: Town.find(1),
-      description: 'Oficjalny stadion ląska Wrocław',
+      description: 'Oficjalny stadion Śląska Wrocław',
 	  reviews: Review.create(
         [
           {
@@ -366,7 +370,7 @@ places = Place.create(
     },
 	{
       name: 'Multikino',
-      address: '222 283',
+      address: 'Plac Grunwaldzki 34',
       type: Type.find(7),
       town: Town.find(1),
       description: 'Kino mieszczące się w galerii Pasaż Grunwaldzki',
@@ -385,7 +389,7 @@ places = Place.create(
     },
 	{
       name: 'Plac Strzegomski',
-      address: '200 203',
+      address: 'Strzegomska 2',
       type: Type.find(8),
       town: Town.find(1),
       description: 'Plac znajdujący się na Szczepinie, z bunkrem w miejscu centralnym'
@@ -393,7 +397,7 @@ places = Place.create(
     },
     {
       name: 'Park Rozrywki Maleńczuk',
-      address: '234 229',
+      address: 'Wesoła 112',
       type: Type.find(9),
       town: Town.find(1),
       description: 'Największa przestrzeń dla malucha w wieku od 3 do 12 lat.',
@@ -416,7 +420,7 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Wrocław',
-      address: '206 299',
+      address: 'Borowska 99',
       type: Type.find(10),
       town: Town.find(1),
       description: 'Największy park wodny na Dolnym Sląsku',
@@ -435,7 +439,7 @@ places = Place.create(
     },
 	{
       name: 'Muzeum II wojny światowej',
-      address: '323 323',
+      address: 'Wałęsy 82',
       type: Type.find(1),
       town: Town.find(3),
       description: 'Największa muzeum hisotryczne w Polsce przedstawiające martyrologie Polaków',
@@ -450,7 +454,7 @@ places = Place.create(
     },
     {
       name: 'Restauracja Neptun',
-      address: '333 343',
+      address: 'Stare Miasto 4',
       type: Type.find(2),
       town: Town.find(3),
       description: 'Restauracja firmowana nazwiskiem Magdy Gesler',
@@ -466,14 +470,14 @@ places = Place.create(
           },
           {
             user: User.find(3),
-            content: 'wietne miejsce na spotkanie rodzinne'
+            content: 'Swietne miejsce na spotkanie rodzinne'
           }
         ]
       )
     },
      {
       name: 'Plac zabaw',
-      address: '331 311',
+      address: 'Skłodowskiej 18',
       type: Type.find(3),
       town: Town.find(3),
       description: 'Osiedlowy plac zabaw'
@@ -481,7 +485,7 @@ places = Place.create(
     },
     {
       name: 'Teatr Bałtycki',
-      address: '343 323',
+      address: 'Bałycka 23',
       type: Type.find(4),
       town: Town.find(3),
       description: 'Teatr lalek, jedyny taki na Pomorzu',
@@ -500,7 +504,7 @@ places = Place.create(
     },
     {
       name: 'Filharmonia Pomorska',
-      address: '183 143',
+      address: 'Pomorska 121',
       type: Type.find(5),
       town: Town.find(3),
       description: 'Filharmonia o długoletniej tradycji, mająca europejską renomę',
@@ -523,14 +527,14 @@ places = Place.create(
     },
 	{
       name: 'Stadion Energa Gdańska',
-      address: '382 313',
+      address: 'Pokoleń Lechii Gdańsk 1',
       type: Type.find(6),
       town: Town.find(3),
       description: 'Oficjalny stadion Lechi Gdańsk o pojemności 43 000 widzów'
     },
 	{
       name: 'Cinema City',
-      address: '112 183',
+      address: 'Śliczna 81',
       type: Type.find(7),
       town: Town.find(3),
       description: 'Komercyjne kino z bogatym repertuarem'
@@ -538,15 +542,15 @@ places = Place.create(
     },
 	{
       name: 'Park Wiślański',
-      address: '110 103',
+      address: 'Wrońskiego 25',
       type: Type.find(8),
       town: Town.find(3),
-      description: 'Park położony przy ujści Wisły, pod patronatem Ministerswa rodowiska'
+      description: 'Park położony przy ujści Wisły, pod patronatem Ministerswa Środowiska'
 
     },
     {
       name: 'Park rozrywki Amber',
-      address: '314 334',
+      address: 'Lema 2',
       type: Type.find(9),
       town: Town.find(3),
       description: 'Park rozyrywki znajdującej się w przedwojennej fabryce cegieł',
@@ -569,7 +573,7 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Gdańsk',
-      address: '370 399',
+      address: 'Zamkowa Góra 3-5',
       type: Type.find(10),
       town: Town.find(3),
       description: 'Basen sprotowy wraz z jacuzzi',
@@ -588,7 +592,7 @@ places = Place.create(
     },
 	{
       name: 'Muzeum Krakowskie',
-      address: '493 469',
+      address: 'Jagiellońska 3',
       type: Type.find(1),
       town: Town.find(4),
       description: 'Zbiory przedstawiające średniowieczny Kraków',
@@ -607,7 +611,7 @@ places = Place.create(
     },
     {
       name: 'Restaucracja Wawel',
-      address: '433 443',
+      address: 'Wawelska 3',
       type: Type.find(2),
       town: Town.find(4),
       description: 'Ekskluzywna restauracja znajdująca się pod samym zamkiem Wawelskim',
@@ -626,14 +630,14 @@ places = Place.create(
     },
      {
       name: 'Plac zabaw Krakusek',
-      address: '423 487',
+      address: 'Podzamcza 72',
       type: Type.find(3),
       town: Town.find(4),
       description: 'Osiedlowy plac zabaw dla dzieci w wieku 8-14 lat'
     },
     {
       name: 'Teatr Krakowski',
-      address: '443 423',
+      address: 'Krakowska 23',
       type: Type.find(4),
       town: Town.find(4),
       description: 'Teatr przy ul.Krakowskiej mający 100 letnią rodzinną tradycję',
@@ -652,7 +656,7 @@ places = Place.create(
     },
     {
       name: 'Filharmonia Krakowska',
-      address: '463 499',
+      address: 'Krakowska 1',
       type: Type.find(5),
       town: Town.find(4),
       description: 'Najstarsza filharmonia w Polsce o długoletniej tradycji',
@@ -671,7 +675,7 @@ places = Place.create(
     },
 	{
       name: 'Stadion Wisły Kraków',
-      address: '253 211',
+      address: 'Reymana 12',
       type: Type.find(6),
       town: Town.find(4),
       description: 'Oficjalny stadion krakowskiej Wisły',
@@ -686,7 +690,7 @@ places = Place.create(
     },
 	{
       name: 'Kino Polonia',
-      address: '442 473',
+      address: 'Serbska 24',
       type: Type.find(7),
       town: Town.find(4),
       description: 'Kino mieszczące się w Galeri Krakowskiej',
@@ -705,7 +709,7 @@ places = Place.create(
     },
 	{
       name: 'Park',
-      address: '451 403',
+      address: 'Gdańska 67',
       type: Type.find(8),
       town: Town.find(4),
       description: 'Park mieszczący się obok Biznes Parku'
@@ -713,7 +717,7 @@ places = Place.create(
     },
     {
       name: 'Park Rozrywki Krakus',
-      address: '434 429',
+      address: 'Chorwacka 91',
       type: Type.find(9),
       town: Town.find(4),
       description: 'Park rozrywki dla dorosłych - paintball, gokarty, wirtualna rzecywistość',
@@ -732,7 +736,7 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Kraków',
-      address: '406 499',
+      address: 'Alpejska 21',
       type: Type.find(10),
       town: Town.find(4),
       description: 'Największy park wodny na Dolnym Sląsku',

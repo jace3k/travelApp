@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120183825) do
+ActiveRecord::Schema.define(version: 20180121121858) do
 
   create_table "places", force: true do |t|
     t.string   "name"
-    t.string   "coords"
     t.integer  "type_id"
     t.integer  "town_id"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
   end
 
   add_index "places", ["town_id"], name: "index_places_on_town_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180120183825) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_url"
   end
 
   create_table "trips", force: true do |t|

@@ -68,6 +68,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def friends
+    @current_user = User.find(params[:id])
+    render :friends
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

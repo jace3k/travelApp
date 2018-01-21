@@ -4,7 +4,6 @@ class TripsController < ApplicationController
   before_action :require_token
 
 
-
   # GET /trips
   # GET /trips.json
   def index
@@ -24,8 +23,6 @@ class TripsController < ApplicationController
   # GET /trips/1/edit
   def edit
   end
-
-
 
   # POST /trips
   # POST /trips.json
@@ -66,7 +63,7 @@ class TripsController < ApplicationController
       render json: {message: "usunięto tripa"}
     else
       @trip.errors.add(:permissions, 'brak uprawnień')
-      render json: {errors: @trip.errors}
+      render json: { errors: @trip.errors }, status: :unauthorized
     end
   end
 
@@ -75,9 +72,9 @@ class TripsController < ApplicationController
     if user
       unless @trip.joined?(user)
         @trip.users.append(user)
-        render json: { message: 'dodano ziomeczka.', username: params[:username] }, status: :ok
+        render json: { message: 'dodano użytkownika'}, status: :ok
       else
-        @trip.errors.add(:username, 'użytkownik już należy do tego tripa.')
+        @trip.errors.add(:username, 'użytkownik już należy do tego tripa')
         render json: { errors: @trip.errors }, status: :conflict
       end
     else
@@ -91,12 +88,14 @@ class TripsController < ApplicationController
     if user
       if @trip.joined?(user)
         @trip.users.delete(user)
-        render json: { message: 'Wywalono ziomeczka.', username: params[:username] }
+        render json: { message: 'wywalono ziomeczka.' }, status: :ok
       else
-        render json: { message: 'Ziomeczek nie zapisał sie na tego tripa.', username: params[:username] }
+        @trip.errors.add(:username, 'użytkownik nie należy do tego tripa')
+        render json: { errors: @trip.errors }, status: :conflict
       end
     else
-      render json: { message: 'Nie ma takiego ziomeczka.' }
+      @trip.errors.add(:username, 'nie ma takiego użytkownika')
+      render json: { errors: @trip.errors }, status: :not_found
     end
   end
 
@@ -106,19 +105,23 @@ class TripsController < ApplicationController
       begin
         @placeid = Place.find(params[:place])
         unless @trip.places.include?(@placeid)
+          
           @trip.places.append(@placeid)
-          render json: { message: 'Dodano miejsce.'}
+
+          render json: { message: 'Dodano miejsce.'}, status: :ok
         else
-          render json: { message: 'Już jest to miejsce.'}
+          @trip.errors.add(:trip, 'to miejsce już zostało dodane')
+          render json: { errors: @trip.errors }, status: :conflict
         end
       rescue Exception
-        render json: { message: 'Nie ma takiego miejsca.'}
+        @trip.errors.add(:trip, 'nie ma takiego miejsca')
+        render json: { errors: @trip.errors }, status: :not_found
       end
 
     else
-      render json: { message: 'Nie należysz do tego tripa.'}
+      @trip.errors.add(:trip, 'nie należysz do tego tripa')
+      render json: { errors: @trip.errors }, status: :unauthorized
     end
-    #render json: { message: 'cos tu nie gra.'}
   end
 
 
@@ -129,23 +132,24 @@ class TripsController < ApplicationController
         @placeid = Place.find(params[:place])
         if @trip.places.include?(@placeid)
           @trip.places.delete(@placeid)
-          render json: { message: 'Usunieto miejsce.'}
+          render json: { message: 'usunieto miejsce.'}, status: :ok
         else
-          render json: { message: 'Nie było takiego miejsca.'}
+          @trip.errors.add(:trip, 'nie ma takiego miejsca')
+          render json: { errors: @trip.errors }
         end
       rescue Exception
-        render json: { message: 'Nie ma takiego miejsca.'}
+        @trip.errors.add(:trip, 'takie miejsce nie istnieje')
+        render json: { errors: @trip.errors }
       end
 
     else
-      render json: { message: 'Nie należysz do tego tripa.'}
+      @trip.errors.add(:trip, 'nie należysz do tego tripa')
+      render json: { errors: @trip.errors }
     end
-    #render json: { message: 'cos tu nie gra.'}
   end
 
   def places
     @current_trip = Trip.find(params[:id])
-
   end
 
   def posts

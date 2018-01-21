@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   delete  '/places/:id/reviews/:reviewid',     to: 'reviews#destroy'
   get     '/towns/:id/places',           to: 'towns#places'
 
+  get     '/users/:id/friends',        to: 'users#friends'
+
   resources :towns
   resources :types
   # resources :reviews
