@@ -68,7 +68,7 @@ class TripsController < ApplicationController
   end
 
   def join
-    user = User.find_by(username: params[:username])
+    user = User.find_by(id: params[:user])
     if user
       unless @trip.joined?(user)
         @trip.users.append(user)
@@ -84,7 +84,7 @@ class TripsController < ApplicationController
   end
 
   def unjoin
-    user = User.find_by(username: params[:username])
+    user = User.find_by(id: params[:user])
     if user
       if @trip.joined?(user)
         @trip.users.delete(user)
