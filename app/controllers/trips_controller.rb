@@ -105,7 +105,7 @@ class TripsController < ApplicationController
       begin
         @placeid = Place.find(params[:place])
         unless @trip.places.include?(@placeid)
-          
+
           @trip.places.append(@placeid)
 
           render json: { message: 'Dodano miejsce.'}, status: :ok
@@ -135,11 +135,11 @@ class TripsController < ApplicationController
           render json: { message: 'usunieto miejsce.'}, status: :ok
         else
           @trip.errors.add(:trip, 'nie ma takiego miejsca')
-          render json: { errors: @trip.errors }
+          render json: { errors: @trip.errors }, status: :conflict
         end
       rescue Exception
         @trip.errors.add(:trip, 'takie miejsce nie istnieje')
-        render json: { errors: @trip.errors }
+        render json: { errors: @trip.errors }, status: :not_found
       end
 
     else
