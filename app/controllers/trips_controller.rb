@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy, :join, :unjoin]
+  before_action :set_trip, only: [:show, :edit, :update, :join, :unjoin]
   skip_before_action :verify_authenticity_token
   before_action :require_token
 
@@ -58,6 +58,7 @@ class TripsController < ApplicationController
   # DELETE /trips/1
   # DELETE /trips/1.json
   def destroy
+    @trip = Trip.find_by(id: params[:trip])
     if current_user.trips.include?(@trip)
       @trip.destroy
       render json: {message: "usunięto tripa"}

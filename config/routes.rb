@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get      '/trips/:id/removeplace',   to: 'trips#removeplace'
 
   get     '/trips/:id/posts',     to: 'trips#posts'
+  get     '/trips/delete',        to: 'trips#destroy'
 
   get     '/places/:id/reviews',     to: 'places#reviews'
   get     '/places/:id/reviews/:reviewid',     to: 'reviews#show'
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   get     '/towns/:id/places',           to: 'towns#places'
 
   get     '/users/:id/friends',        to: 'users#friends'
+
+
 
   resources :towns
   resources :types
