@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get     '/trips/delete',        to: 'trips#destroy'
 
   get     '/places/:id/reviews',     to: 'places#reviews'
+  post     '/places/:id/reviews',     to: 'reviews#create'
   get     '/places/:id/reviews/:reviewid',     to: 'reviews#show'
   delete  '/places/:id/reviews/:reviewid',     to: 'reviews#destroy'
   get     '/towns/:id/places',           to: 'towns#places'
