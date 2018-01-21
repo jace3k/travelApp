@@ -6,7 +6,8 @@ if current_user.trips.include?(@trip)
   json.town_name @trip.town.name
   json.town_desc @trip.town.description
   json.town_id @trip.town.id
-  json.admin_id @current_user.id
+  json.photo_url @trip.town.photo_url
+  json.admin_id @trip.user.id
 
   json.users @trip.users do |user|
     json.id user.id

@@ -13,6 +13,7 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
+
   end
 
   # GET /trips/new
@@ -28,12 +29,14 @@ class TripsController < ApplicationController
   # POST /trips.json
   def create
     @trip = Trip.new(trip_params)
+    @trip.user = @current_user
+    @trip.users.append(current_user)
     respond_to do |format|
       if @trip.save
-        @trip.users.append(current_user)
-        @trip.user = @current_user
+
+
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render json: {message: 'Utworzono tripa.', name: @trip.name}, status: :ok }
+        format.json { render json: {message: 'Utworzono tripa.', name: @trip.user_id}, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
