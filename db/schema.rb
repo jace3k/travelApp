@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121121858) do
+ActiveRecord::Schema.define(version: 20180122210250) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180121121858) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "token"
+    t.string   "device_id"
   end
 
   add_index "users", ["token"], name: "index_users_on_token"

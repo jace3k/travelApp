@@ -73,6 +73,21 @@ class UsersController < ApplicationController
     render :friends
   end
 
+  def set_device_id
+    @user = User.find_by(token: params[:token])
+    if @user != nil
+      @user.device_id = params[:device_id]
+      render json: {}, status: :ok
+    else
+      render json: {}, status: :not_found
+    end
+  end
+
+
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

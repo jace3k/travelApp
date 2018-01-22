@@ -1,4 +1,4 @@
-json.trips current_user.trips do |trip|
+json.trips current_user.trips.sort_by(&:start_date) do |trip|
   json.id trip.id
   json.trip trip.name
   json.town trip.town.name

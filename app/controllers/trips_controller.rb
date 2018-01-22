@@ -76,7 +76,8 @@ class TripsController < ApplicationController
     if user
       unless @trip.joined?(user)
         @trip.users.append(user)
-        render json: { message: 'dodano użytkownika'}, status: :ok
+        send_notify
+        # render json: { message: 'dodano użytkownika'}, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik już należy do tego tripa')
         render json: { errors: @trip.errors }, status: :conflict

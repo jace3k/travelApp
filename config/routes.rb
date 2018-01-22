@@ -26,7 +26,9 @@ Rails.application.routes.draw do
 
   get     '/users/:id/friends',        to: 'users#friends'
 
+  get     '/users/send',              to: 'users#send_notify'
 
+  post    '/device_id',      to: 'users#set_device_id'
 
   resources :towns
   resources :types
