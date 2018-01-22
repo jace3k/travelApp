@@ -37,11 +37,8 @@ module SessionsHelper
   end
 
   def send_notify(msg, trip_id, user)
-    @uksz_device = "fOEzufxHvlo:APA91bFTwpvSpMesDZUc-Y_G27vV7zRZc-9KLaARDWcyIC1OdmlFGwlgv2sjLFngAle4Tvkc_k_uEHOqcO89-ijvhvGm9JP7rSuU1mmDmQOEt7ZZNygRBIigHqladfKvxlYLDRbaDH0u"
     require 'gcm'
-
     gcm = GCM.new("AAAADP0UKRs:APA91bHozrt9kWLI8n21kuv5sPSoiGGV5jsp0lSWGkkg8M4K6yNk4EXP0TxYxdkCj4oTPYTMTSjn3BNj0InRm3n7UEWFxVQuk7oLMmtWgi3dQMkvSoPdJZSzrX5Bkd1JqQEiTgWHNmnI")
-
 
     registration_ids= [user.device_id] # an array of one or more client registration tokens
     options = { data: { msg: msg, trip_id: trip_id } }

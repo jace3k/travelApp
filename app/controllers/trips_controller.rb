@@ -36,7 +36,7 @@ class TripsController < ApplicationController
 
 
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render json: {message: 'Utworzono tripa.', name: @trip.user_id}, status: :ok }
+        format.json { render json: {message: 'Utworzono tripa.', admin_id: @trip.user_id}, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
@@ -72,10 +72,13 @@ class TripsController < ApplicationController
   end
 
   def join
+    # @uksz_device = "eX6P2DrtzMs:APA91bGW4LTEJcfSpjXU2sYvvue_W1qowCzfV4YGlEZpWoflFDrgSumw3S9AcyZG0N95g0Z2SFdJBw6I4fpfxQa0S7sbXbstGZqBRDP2rTZF2Cb6WsgEiv2QYkRe_crcsvpqDh_0R00c"
+
     user = User.find_by(id: params[:user])
     if user
       unless @trip.joined?(user)
         @trip.users.append(user)
+        # user.device_id = @uksz_device
         send_notify('Zostałeś dodany do wycieczki!', @trip.id, user)
         # render json: { message: 'dodano użytkownika'}, status: :ok
       else
