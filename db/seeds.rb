@@ -32,6 +32,36 @@ users = User.create(
       name: 'Boniek',
       last_name: 'Edek',
       password: '123'
+    },
+    {
+      username: 'dziki95',
+      name: 'Mati',
+      last_name: 'Kot',
+      password: '123'
+    },
+    {
+      username: 'ala69',
+      name: 'Ala',
+      last_name: 'Górka',
+      password: '123'
+    },
+    {
+      username: '3olaf',
+      name: 'Olaf',
+      last_name: 'Berkowicz',
+      password: '123'
+    },
+    {
+      username: 'Ka$ery',
+      name: 'Ksawery',
+      last_name: 'brak',
+      password: '123'
+    },
+    {
+      username: 'Natka45',
+      name: 'Natalia',
+      last_name: 'Lubas',
+      password: '123'
     }
   ]
 )
@@ -102,7 +132,7 @@ types = Type.create(
 places = Place.create(
   [
     {
-      name: 'Muzeum narodowe',
+      name: 'Muzeum Narodowe',
       address: 'Aleje Jerozolimskie 3',
       type: Type.find(1),
       town: Town.find(2),
@@ -112,6 +142,25 @@ places = Place.create(
           {
             user: User.find(1),
             content: 'Bogata ekspozycja'
+          }
+        ]
+      )
+    },
+	{
+      name: 'Muzeum Powstania Warszawskiego ',
+      address: 'Grzybowska 79',
+      type: Type.find(1),
+      town: Town.find(2),
+      description: 'Muzeum poświęcone pamięci Powstańców Warszawkich',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(1),
+            content: 'Doskonałe miejsce na wycieczki szkolne, ucząca wyprawa dla najmłodszych'
+          },
+		  {
+            user: User.find(3),
+            content: 'Zawsze wracam do tego miejsca'
           }
         ]
       )
@@ -135,6 +184,29 @@ places = Place.create(
           {
             user: User.find(3),
             content: 'świetne miejsce na randkę'
+          }
+        ]
+      )
+    },
+	 {
+      name: 'Restaucracja Sowa i Przyjaciele',
+      address: 'Czerniakowska 179',
+      type: Type.find(2),
+      town: Town.find(2),
+      description: 'Miejsce spotkań najważniejszych ludzi za czasów III RP',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(1),
+            content: 'Legendarne miejsce, to tu wybuchły afery Platformy xd'
+          },
+          {
+            user: User.find(2),
+            content: 'Miejsce spotkań POpaprańców i aferzystów xd'
+          },
+          {
+            user: User.find(3),
+            content: 'Bardzo dobre ośmiorniczki, na dodatek w wybornej cenie 199zł'
           }
         ]
       )
@@ -173,6 +245,25 @@ places = Place.create(
         ]
       )
     },
+	 {
+      name: 'Teatr Czerniakowski',
+      address: 'Czerniakowska 32',
+      type: Type.find(4),
+      town: Town.find(2),
+      description: 'Teatr o wieloletniej tradycji łączący tradycję z nowoczesnością',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(1),
+            content: 'We wtorek otrzymaliśmy zniżki dla całej rodziny'
+          },
+		  {
+            user: User.find(4),
+            content: 'Wygodne fotele, niczego więcej mi nie trzeba'
+          }
+        ]
+      )
+    },
     {
       name: 'Filharmonia Warszawska',
       address: 'Grunwaldzka 34',
@@ -204,6 +295,13 @@ places = Place.create(
       description: 'Oficjalny stadion polskiej reprezentacji'
     },
 	{
+      name: 'Stadion Laegi Warszawa',
+      address: 'Łazienkowska 1',
+      type: Type.find(6),
+      town: Town.find(2),
+      description: 'Oficjalny stadion wojskowego klubu Legia Warszawa'
+    },
+	{
       name: 'Kino Polonia',
       address: 'Racławicka 194',
       type: Type.find(7),
@@ -222,6 +320,29 @@ places = Place.create(
           {
             user: User.find(3),
             content: 'W sam raz'
+          }
+        ]
+      )
+    },
+	{
+      name: 'Kino Helios',
+      address: 'Aleje Ujazdowskie 79/2',
+      type: Type.find(7),
+      town: Town.find(2),
+      description: 'Kino spółki AGORA skierowane dla ludzi młodszych jak i starszych',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(4),
+            content: 'Sympatyczna obłsug, dobre seanse, Polecam!'
+          },
+          {
+            user: User.find(3),
+            content: 'Warto kupować bilety grupowe dla grup zorganizowanych'
+          },
+          {
+            user: User.find(1),
+            content: 'Może być'
           }
         ]
       )
@@ -291,6 +412,25 @@ places = Place.create(
         ]
       )
     },
+	{
+      name: 'Muzeum Okręgowa',
+      address: 'Petrusewicza 34',
+      type: Type.find(1),
+      town: Town.find(1),
+      description: 'Muzeum posiada w swojej kolekcji ponad 5000 zbiorów lokalnych artystów',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(3),
+            content: 'Mało znane miejsce na mapie Wrocławia, warto tam pojechać'
+          },
+		  {
+            user: User.find(4),
+            content: 'Gdyby nie ceny i godziny otwarcia byłoby super'
+          },
+        ]
+      )
+    },
     {
       name: 'Restaucracja Bohema',
       address: 'Ugory 172',
@@ -310,12 +450,19 @@ places = Place.create(
         ]
       )
     },
-     {
+    {
       name: 'Plac zabaw',
       address: 'Majowa 91',
       type: Type.find(3),
       town: Town.find(1),
       description: 'Osiedlowy plac zabaw na wrocławskim Biskupinie'
+    },
+	{
+      name: 'Plac zabaw Trójkąt',
+      address: 'Obozowa 21',
+      type: Type.find(3),
+      town: Town.find(1),
+      description: 'Osiedlowy plac zabaw na wrocławskim Trójkącie'
     },
     {
       name: 'Teatr Polski',
@@ -355,6 +502,25 @@ places = Place.create(
           {
             user: User.find(3),
             content: 'OK'
+          }
+        ]
+      )
+    },
+	{
+      name: 'Filharmonia Dolnośląska',
+      address: 'Mickiewicza 126',
+      type: Type.find(5),
+      town: Town.find(1),
+      description: 'Filarmonia w swoim repertuarze oferuje co miesięczne spektakle muzyki klasycznej',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(1),
+            content: 'W porządku'
+          },
+          {
+            user: User.find(2),
+            content: 'Gdyby nie pluskwy to bym zachwalał to miejsce, KATASTROFA!'
           }
         ]
       )
@@ -401,6 +567,22 @@ places = Place.create(
       description: 'Plac znajdujący się na Szczepinie, z bunkrem w miejscu centralnym'
 
     },
+	{
+      name: 'Plac im. Adama Mickiewicza',
+      address: 'Poetów 13',
+      type: Type.find(8),
+      town: Town.find(1),
+      description: 'Plac poświęcony największemu polskiemu wieszczowi naradowemu',
+	  reviews: Review.create(
+        [
+          {
+            user: User.find(4),
+            content: 'Nowo otwarte miejsce, piękne aranżacja i atmosfera do wieczornych spacerów'
+          }
+        ]
+      )
+
+    },
     {
       name: 'Park Rozrywki Maleńczuk',
       address: 'Wesoła 112',
@@ -425,6 +607,25 @@ places = Place.create(
       )
     },
 	 {
+      name: 'Park Rozrywki Ola',
+      address: 'Majewskiego 2',
+      type: Type.find(9),
+      town: Town.find(1),
+      description: 'Osiedlowy plac rozrywki dla dzieci i niemowląt',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(3),
+            content: 'Bardzo ciekawe gry dla dzieci, Pani animatorka się sprawdziła'
+          },
+          {
+            user: User.find(4),
+            content: 'Ciekawie prowadzone zajęcia z angielskiego dla niemowląt, wybiorę się tu drugi raz'
+          }
+        ]
+      )
+    },
+	{
       name: 'Aquapark Wrocław',
       address: 'Borowska 99',
       type: Type.find(10),
@@ -442,6 +643,13 @@ places = Place.create(
           }
         ]
       )
+    },
+	{
+      name: 'Aquapark przy Szkole Podstawoej nr 45',
+      address: 'Zawiszy Czarnego 9',
+      type: Type.find(10),
+      town: Town.find(1),
+      description: 'Nowoczesny i innowacyjny basen sportowy wybudowany w 2012 roku',
     },
 	{
       name: 'Muzeum II wojny światowej',
@@ -508,6 +716,25 @@ places = Place.create(
         ]
       )
     },
+	{
+      name: 'Teatr Zachodni',
+      address: 'Zachnodnia 83',
+      type: Type.find(4),
+      town: Town.find(3),
+      description: 'Teatr oferujący spekatkle z kalejdoskpem gwiazd, na rynku od 2003',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(3),
+            content: 'Warto tam się wybrać dla Bogusia Lindy, kocham go <3'
+          },
+		  {
+            user: User.find(4),
+            content: 'Oszuści, nie chcieli oddać mi pieniędzy za anuowany spektakl'
+          }
+        ]
+      )
+    },
     {
       name: 'Filharmonia Pomorska',
       address: 'Pomorska 121',
@@ -547,12 +774,43 @@ places = Place.create(
 
     },
 	{
+      name: 'Kino Adria',
+      address: 'Fabryczna 45',
+      type: Type.find(7),
+      town: Town.find(3),
+      description: 'Miejskie kino oferujące przedstawienia i filme dla dzieci i młodzieży szkolnej',
+	    reviews: Review.create(
+        [
+          {
+            user: User.find(4),
+            content: 'Zawsze tutaj wracam ze względu na sentyment do tego miejsca'
+          },
+          {
+            user: User.find(2),
+            content: 'Nieprzyjemny odór, obiekt nieremnotowany od lat'
+          },
+          {
+            user: User.find(3),
+            content: 'Wstyd, toalety płatne mimo zakupionego biletu!!'
+          }
+        ]
+      )
+
+    },
+	{
       name: 'Park Wiślański',
       address: 'Wrońskiego 25',
       type: Type.find(8),
       town: Town.find(3),
       description: 'Park położony przy ujści Wisły, pod patronatem Ministerswa Środowiska'
 
+    },
+	{
+      name: 'Park Powstańców Listopadowych',
+      address: 'Wrońskiego 25',
+      type: Type.find(8),
+      town: Town.find(3),
+      description: 'Park położony na zachodniej części Gdańska o powierzchni 4ha'
     },
     {
       name: 'Park rozrywki Amber',
@@ -596,6 +854,29 @@ places = Place.create(
         ]
       )
     },
+	 {
+      name: 'Aquapark Bursztyn',
+      address: 'Lubicza 83',
+      type: Type.find(10),
+      town: Town.find(3),
+      description: 'Basen odnowy biologicznej z wodami termalnymi',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(2),
+            content: 'Tylko dla starszych ludzi, brak jakichkolwiek młodych i atrakcyjnych kobiet'
+          },
+		  {
+            user: User.find(3),
+            content: 'Płatność tylko gotówką!'
+          },
+		  {
+            user: User.find(4),
+            content: 'Trzeba uważać na czas, za przekrozenie dotkliwe kary'
+          }
+        ]
+      )
+    },
 	{
       name: 'Muzeum Krakowskie',
       address: 'Jagiellońska 3',
@@ -630,6 +911,44 @@ places = Place.create(
           {
             user: User.find(2),
             content: 'Tak powinna wyglądać resturacja'
+          }
+        ]
+      )
+    },
+	{
+      name: 'Restaucracja Krakus',
+      address: 'Literatów 133',
+      type: Type.find(2),
+      town: Town.find(4),
+      description: 'Restauracja serwująca dania orientalne',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(1),
+            content: 'Nie mam dobrych wspomnień z tym miejscem, dziewczyna uciekła jak zobaczyła nasze danie'
+          },
+          {
+            user: User.find(2),
+            content: 'Unikać jak ognia, niemiła obsługa i wymuszają niegodziwe napiwki'
+          }
+        ]
+      )
+    },
+	{
+      name: 'Restaucracja Orient',
+      address: 'Niemiecka 83',
+      type: Type.find(2),
+      town: Town.find(4),
+      description: 'Restauracja serwująca oryginalny Kebab turecki',
+      reviews: Review.create(
+        [
+          {
+            user: User.find(4),
+            content: 'Dobre miejsce na gastro po imprezie, pełno pijanych ludzi tutaj'
+          },
+          {
+            user: User.find(3),
+            content: 'Dużo pijanych ludzi tutaj, to nie restuaracja a melina'
           }
         ]
       )
@@ -719,6 +1038,30 @@ places = Place.create(
       type: Type.find(8),
       town: Town.find(4),
       description: 'Park mieszczący się obok Biznes Parku'
+
+    },
+	{
+      name: 'Park Pan Tadeusz',
+      address: 'Urocza 671',
+      type: Type.find(8),
+      town: Town.find(4),
+      description: 'Park otwarty w ciągu dnia dla wszsytkich mieszkańców Krakowa',
+	  reviews: Review.create(
+        [
+          {
+            user: User.find(1),
+            content: 'To nonsens,że nie można tutaj przychodzić w nocy, mogłby być tak pięknie'
+          },
+          {
+            user: User.find(3),
+            content: 'Uwaga, w nocy można trafić tutaj na NIECIEKAWE przypadki zachowań'
+          },
+		  {
+            user: User.find(4),
+            content: 'Idealne miesjce na lunch i kawę z najbliższymi'
+          }
+        ]
+      )
 
     },
     {
