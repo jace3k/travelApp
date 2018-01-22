@@ -36,7 +36,7 @@ module SessionsHelper
     render json: errors, status: :unauthorized
   end
 
-  def send_notify
+  def send_notify(msg, trip_id)
     @uksz_device = "fOEzufxHvlo:APA91bFTwpvSpMesDZUc-Y_G27vV7zRZc-9KLaARDWcyIC1OdmlFGwlgv2sjLFngAle4Tvkc_k_uEHOqcO89-ijvhvGm9JP7rSuU1mmDmQOEt7ZZNygRBIigHqladfKvxlYLDRbaDH0u"
     require 'gcm'
 
@@ -44,7 +44,7 @@ module SessionsHelper
 
 
     registration_ids= [current_user.device_id] # an array of one or more client registration tokens
-    options = { data: { msg: 'Zostałeś dodany do wyjazdu!', trip_id: '3' } }
+    options = { data: { msg: msg, trip_id: trip_id } }
     response = gcm.send(registration_ids, options)
     if response
       render json: {
