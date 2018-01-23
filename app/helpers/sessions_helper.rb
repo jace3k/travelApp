@@ -41,7 +41,7 @@ module SessionsHelper
     gcm = GCM.new("AAAADP0UKRs:APA91bFeG87puelWDsgqoEnnTP_dDsm8ZBK54dlE7YjAyZL0maeB8MMgeTRQdgKKz0ECSqXS6eq4tUiCOW1AeCgOaA06iBlcpf86GQ5cthnAUWUxs9aBEXtBKzT6O0PSqF-m8at7aEcy")
 
     registration_ids= [user.device_id] # an array of one or more client registration tokens
-    options = { data: { msg: msg, trip_id: trip_id, type: type } }
+    options = { data: { msg: msg, trip_id: trip_id, type: type, date: Time.now.strftime("%Y/%m/%d %H:%M") } }
     response = gcm.send(registration_ids, options)
     #render json: {
     #  message: response[:response], msg: msg, type: type, trip_id: trip_id
