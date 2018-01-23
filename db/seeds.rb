@@ -134,6 +134,8 @@ places = Place.create(
     {
       name: 'Muzeum Narodowe',
       address: 'Aleje Jerozolimskie 3',
+	  lat:52.231625,
+	  lon:21.024959 ,
       type: Type.find(1),
       town: Town.find(2),
       description: 'Największa kolekcja zbiorów w Polsce',
@@ -142,6 +144,10 @@ places = Place.create(
           {
             user: User.find(1),
             content: 'Bogata ekspozycja'
+          },
+		  {
+            user: User.find(4),
+            content: 'Na zwiedzenie muzeum trzeba poświęcić cały dzień'
           }
         ]
       )
@@ -149,6 +155,8 @@ places = Place.create(
 	{
       name: 'Muzeum Powstania Warszawskiego ',
       address: 'Grzybowska 79',
+	  lat:52.232318,
+	  lon:20.981153,
       type: Type.find(1),
       town: Town.find(2),
       description: 'Muzeum poświęcone pamięci Powstańców Warszawkich',
@@ -166,8 +174,10 @@ places = Place.create(
       )
     },
     {
-      name: 'Restaucracja Raj',
-      address: 'Planu 6-letniego 4',
+      name: 'Raj w Niebie',
+      address: 'Nowy Świat 21',
+	  lat:52.232389,
+	  lon:21.018284,
       type: Type.find(2),
       town: Town.find(2),
       description: 'Restauracja firmowana nazwiskiem Magdy Gesler',
@@ -189,8 +199,10 @@ places = Place.create(
       )
     },
 	 {
-      name: 'Restaucracja Sowa i Przyjaciele',
+      name: 'Restauracja Sowa i Przyjaciele',
       address: 'Czerniakowska 179',
+	  lat:52.226778,
+	  lon:21.039343,
       type: Type.find(2),
       town: Town.find(2),
       description: 'Miejsce spotkań najważniejszych ludzi za czasów III RP',
@@ -212,8 +224,10 @@ places = Place.create(
       )
     },
     {
-      name: 'Plac zabaw na nadwiślański',
-      address: 'Narutowicza 34',
+      name: 'Plac zabaw nadwiślański',
+      address: 'Borowiecka 14',
+	  lat:52.181234,
+	  lon:21.159382,
       type: Type.find(3),
       town: Town.find(2),
       description: 'Największa kolekcja zbiorów w Polsce',
@@ -231,8 +245,10 @@ places = Place.create(
       )
     },
     {
-      name: 'Teatr Polski',
-      address: 'Lecha Kaczyńskiego 156',
+      name: 'Teatr Polski im. Arnolda Szyfmana',
+      address: 'Kazimierza Karasia 2',
+	  lat:52.238521,
+	  lon:21.019703,
       type: Type.find(4),
       town: Town.find(2),
       description: 'Czołowi akotrzy, najlepsi polscy reżyserzy',
@@ -246,8 +262,10 @@ places = Place.create(
       )
     },
 	 {
-      name: 'Teatr Czerniakowski',
-      address: 'Czerniakowska 32',
+      name: 'Teatr Narodowy',
+      address: 'plac Teatralny 3',
+	  lat:52.243385,
+	  lon:21.009340,
       type: Type.find(4),
       town: Town.find(2),
       description: 'Teatr o wieloletniej tradycji łączący tradycję z nowoczesnością',
@@ -265,8 +283,10 @@ places = Place.create(
       )
     },
     {
-      name: 'Filharmonia Warszawska',
-      address: 'Grunwaldzka 34',
+      name: 'Filharmonia Narodowa',
+      address: 'Jasna 5',
+	  lat:52.234458,
+	  lon:21.011281,
       type: Type.find(5),
       town: Town.find(2),
       description: 'Filharmonia zlokalizowana w centrum Warszawy',
@@ -290,20 +310,26 @@ places = Place.create(
 	{
       name: 'Stadion Narodowy',
       address: 'aleja Poniatowskiego 1',
+	  lat:52.239489,
+	  lon:21.045791,
       type: Type.find(6),
       town: Town.find(2),
       description: 'Oficjalny stadion polskiej reprezentacji'
     },
 	{
       name: 'Stadion Laegi Warszawa',
-      address: 'Łazienkowska 1',
+      address: 'Łazienkowska 3',
+	  lat:52.220448,
+	  lon:21.040628,
       type: Type.find(6),
       town: Town.find(2),
       description: 'Oficjalny stadion wojskowego klubu Legia Warszawa'
     },
 	{
-      name: 'Kino Polonia',
-      address: 'Racławicka 194',
+      name: 'Kino Praha',
+      address: 'Jagiellońska 26',
+	  lat:52.251617,
+	  lon:21.035634,
       type: Type.find(7),
       town: Town.find(2),
       description: 'Kino z ponad 30-letnią tradycją, idealnie dla rodzin',
@@ -326,7 +352,9 @@ places = Place.create(
     },
 	{
       name: 'Kino Helios',
-      address: 'Aleje Ujazdowskie 79/2',
+      address: 'Legnicka 58',
+	  lat:51.117956,
+	  lon:16.988031,
       type: Type.find(7),
       town: Town.find(2),
       description: 'Kino spółki AGORA skierowane dla ludzi młodszych jak i starszych',
@@ -348,16 +376,20 @@ places = Place.create(
       )
     },
 	{
-      name: 'Park Mokotowski',
-      address: 'Grobelna 3',
+      name: 'Pole Mokotowskie',
+      address: 'aleja Niepodległości',
+	  lat:52.210637,
+	  lon:20.998437,
       type: Type.find(8),
       town: Town.find(2),
       description: 'Park mający ponad 10 akwenów wodnych oraz bogatą infrastrukturę'
 
     },
     {
-      name: 'Family Park - Galeria Mokotów',
-      address: 'Wiślana 154',
+      name: 'Family Park - Blue City',
+      address: 'Aleje Jerozolimskie 179',
+	  lat:52.212625,
+	  lon:20.955629,
       type: Type.find(9),
       town: Town.find(2),
       description: 'Miejsce dla Ciebie i Twojego dziecka',
@@ -380,7 +412,9 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Varsovia',
-      address: 'Kujawska 92',
+      address: 'Wspólna 4',
+	  lat:52.245776,
+	  lon:21.183480,
       type: Type.find(10),
       town: Town.find(2),
       description: 'Basen sprotowy wraz z jacuzzi',
@@ -395,7 +429,9 @@ places = Place.create(
     },
 	{
       name: 'Muzeum Miejskie Wrocławia',
-      address: 'Śląska 34',
+      address: 'Rynek 1',
+	  lat:51.109562,
+	  lon:17.032080,
       type: Type.find(1),
       town: Town.find(1),
       description: 'Zbiory przedstawiające przedwojenną historię Wrocławia',
@@ -413,8 +449,10 @@ places = Place.create(
       )
     },
 	{
-      name: 'Muzeum Okręgowa',
-      address: 'Petrusewicza 34',
+      name: 'Muzeum Etnograficzne',
+      address: 'Traugutta 111',
+	  lat:51.099868,
+	  lon:17.052993,
       type: Type.find(1),
       town: Town.find(1),
       description: 'Muzeum posiada w swojej kolekcji ponad 5000 zbiorów lokalnych artystów',
@@ -433,7 +471,9 @@ places = Place.create(
     },
     {
       name: 'Restaucracja Bohema',
-      address: 'Ugory 172',
+      address: 'Świdnicka 22',
+	  lat:51.106627,
+	  lon:17.032099,
       type: Type.find(2),
       town: Town.find(1),
       description: 'Tradycyjna polska kuchnia',
@@ -452,21 +492,27 @@ places = Place.create(
     },
     {
       name: 'Plac zabaw',
-      address: 'Majowa 91',
+      address: 'Kamienna 75',
+	  lat:51.088163,
+	  lon:17.032199,
       type: Type.find(3),
       town: Town.find(1),
       description: 'Osiedlowy plac zabaw na wrocławskim Biskupinie'
     },
 	{
-      name: 'Plac zabaw Trójkąt',
+      name: 'Plac zabaw na Gądowie Małym',
       address: 'Obozowa 21',
+	  lat:51.128230,
+	  lon:16.966212,
       type: Type.find(3),
       town: Town.find(1),
       description: 'Osiedlowy plac zabaw na wrocławskim Trójkącie'
     },
     {
       name: 'Teatr Polski',
-      address: 'Siedleckiego 92',
+      address: 'Świdnicka 28',
+	  lat:51.106246,
+	  lon:17.031910,
       type: Type.find(4),
       town: Town.find(1),
       description: 'Samorządowa instytuacja kultury od 1949 roku',
@@ -485,7 +531,9 @@ places = Place.create(
     },
     {
       name: 'Narodowe Forum Muzyki',
-      address: 'Sobieskiego 56',
+      address: 'plac Wolności 1',
+	  lat:51.107049,
+	  lon:17.026373,
       type: Type.find(5),
       town: Town.find(1),
       description: 'Najnowocześniejszy obiekt na kulturalnej mapie Wrocławia',
@@ -507,8 +555,10 @@ places = Place.create(
       )
     },
 	{
-      name: 'Filharmonia Dolnośląska',
-      address: 'Mickiewicza 126',
+      name: 'Filharmonia im. Witolda Lutosławskiego',
+      address: 'Piłsudkiego 79',
+	  lat:51.102998,
+	  lon:17.023892,
       type: Type.find(5),
       town: Town.find(1),
       description: 'Filarmonia w swoim repertuarze oferuje co miesięczne spektakle muzyki klasycznej',
@@ -528,6 +578,8 @@ places = Place.create(
 	{
       name: 'Stadion Wrocław',
       address: 'aleja Śląska 1',
+	  lat:51.141224,
+	  lon:16.943794,
       type: Type.find(6),
       town: Town.find(1),
       description: 'Oficjalny stadion Śląska Wrocław',
@@ -543,6 +595,8 @@ places = Place.create(
 	{
       name: 'Multikino',
       address: 'Plac Grunwaldzki 34',
+	  lat:51.112568,
+	  lon:17.059534,
       type: Type.find(7),
       town: Town.find(1),
       description: 'Kino mieszczące się w galerii Pasaż Grunwaldzki',
@@ -562,14 +616,18 @@ places = Place.create(
 	{
       name: 'Plac Strzegomski',
       address: 'Strzegomska 2',
+	  lat:51.112725,
+	  lon:17.005841,
       type: Type.find(8),
       town: Town.find(1),
       description: 'Plac znajdujący się na Szczepinie, z bunkrem w miejscu centralnym'
 
     },
 	{
-      name: 'Plac im. Adama Mickiewicza',
-      address: 'Poetów 13',
+      name: 'Plac Wolności',
+      address: 'plac Wolności 1',
+	  lat:51.106941,
+	  lon:17.027561,
       type: Type.find(8),
       town: Town.find(1),
       description: 'Plac poświęcony największemu polskiemu wieszczowi naradowemu',
@@ -585,7 +643,9 @@ places = Place.create(
     },
     {
       name: 'Park Rozrywki Maleńczuk',
-      address: 'Wesoła 112',
+      address: 'Wróblewskiego 9',
+	  lat:51.104050,
+	  lon:17.082149,
       type: Type.find(9),
       town: Town.find(1),
       description: 'Największa przestrzeń dla malucha w wieku od 3 do 12 lat.',
@@ -608,7 +668,9 @@ places = Place.create(
     },
 	 {
       name: 'Park Rozrywki Ola',
-      address: 'Majewskiego 2',
+      address: 'Jana Długosza 59-75',
+	  lat:51.135571,
+	  lon:17.067604,
       type: Type.find(9),
       town: Town.find(1),
       description: 'Osiedlowy plac rozrywki dla dzieci i niemowląt',
@@ -628,6 +690,8 @@ places = Place.create(
 	{
       name: 'Aquapark Wrocław',
       address: 'Borowska 99',
+	  lat:51.091087,
+	  lon:17.032278,
       type: Type.find(10),
       town: Town.find(1),
       description: 'Największy park wodny na Dolnym Sląsku',
@@ -645,15 +709,19 @@ places = Place.create(
       )
     },
 	{
-      name: 'Aquapark przy Szkole Podstawoej nr 45',
-      address: 'Zawiszy Czarnego 9',
+      name: 'Aquapark przy Szkole Podstawowej nr 15',
+      address: 'Wieczysta 105',
+	  lat:51.086291,
+	  lon:17.039081,
       type: Type.find(10),
       town: Town.find(1),
       description: 'Nowoczesny i innowacyjny basen sportowy wybudowany w 2012 roku',
     },
 	{
       name: 'Muzeum II wojny światowej',
-      address: 'Wałęsy 82',
+      address: 'Plac Władysława Bartoszewskiego 1',
+	  lat:54.356048,
+	  lon:18.660520,
       type: Type.find(1),
       town: Town.find(3),
       description: 'Największa muzeum hisotryczne w Polsce przedstawiające martyrologie Polaków',
@@ -668,7 +736,9 @@ places = Place.create(
     },
     {
       name: 'Restauracja Neptun',
-      address: 'Stare Miasto 4',
+      address: 'Długa 33',
+	  lat:54.348773,
+	  lon:18.651678,
       type: Type.find(2),
       town: Town.find(3),
       description: 'Restauracja firmowana nazwiskiem Magdy Gesler',
@@ -692,14 +762,18 @@ places = Place.create(
      {
       name: 'Plac zabaw',
       address: 'Skłodowskiej 18',
+	  lat:54.360802,
+	  lon:18.592520,
       type: Type.find(3),
       town: Town.find(3),
       description: 'Osiedlowy plac zabaw'
 
     },
     {
-      name: 'Teatr Bałtycki',
-      address: 'Bałycka 23',
+      name: 'Teatr Wybrzeże',
+      address: 'Świętego Ducha 2',
+	  lat:54.351060,
+	  lon:18.648497,
       type: Type.find(4),
       town: Town.find(3),
       description: 'Teatr lalek, jedyny taki na Pomorzu',
@@ -717,8 +791,10 @@ places = Place.create(
       )
     },
 	{
-      name: 'Teatr Zachodni',
-      address: 'Zachnodnia 83',
+      name: 'Teatr Leśny',
+      address: 'Jaśkowa Dolina 45',
+	  lat:54.372647,
+	  lon:18.595692,
       type: Type.find(4),
       town: Town.find(3),
       description: 'Teatr oferujący spekatkle z kalejdoskpem gwiazd, na rynku od 2003',
@@ -736,8 +812,10 @@ places = Place.create(
       )
     },
     {
-      name: 'Filharmonia Pomorska',
-      address: 'Pomorska 121',
+      name: 'Filharmonia Bałtycka',
+      address: 'Ołowianka 1',
+	  lat:54.352399,
+	  lon:18.659678,
       type: Type.find(5),
       town: Town.find(3),
       description: 'Filharmonia o długoletniej tradycji, mająca europejską renomę',
@@ -761,24 +839,30 @@ places = Place.create(
 	{
       name: 'Stadion Energa Gdańska',
       address: 'Pokoleń Lechii Gdańsk 1',
+	  lat:54.390091,
+	  lon:18.639297,
       type: Type.find(6),
       town: Town.find(3),
       description: 'Oficjalny stadion Lechi Gdańsk o pojemności 43 000 widzów'
     },
 	{
       name: 'Cinema City',
-      address: 'Śliczna 81',
+      address: 'Karmelicka 1',
+	  lat:54.354851,
+	  lon:18.646457,
       type: Type.find(7),
       town: Town.find(3),
       description: 'Komercyjne kino z bogatym repertuarem'
 
     },
 	{
-      name: 'Kino Adria',
-      address: 'Fabryczna 45',
+      name: 'Kino 7D',
+      address: 'Tkacka 17/18',
+	  lat:54.349778,
+	  lon:18.649064,
       type: Type.find(7),
       town: Town.find(3),
-      description: 'Miejskie kino oferujące przedstawienia i filme dla dzieci i młodzieży szkolnej',
+      description: 'Miejskie kino oferujące przedstawienia i filme w 7 wymiarach',
 	    reviews: Review.create(
         [
           {
@@ -798,23 +882,29 @@ places = Place.create(
 
     },
 	{
-      name: 'Park Wiślański',
-      address: 'Wrońskiego 25',
+      name: 'Park Oruński',
+      address: 'Raduńska',
+	  lat:54.322414,
+	  lon:18.626561,
       type: Type.find(8),
       town: Town.find(3),
       description: 'Park położony przy ujści Wisły, pod patronatem Ministerswa Środowiska'
 
     },
 	{
-      name: 'Park Powstańców Listopadowych',
-      address: 'Wrońskiego 25',
+      name: 'Park Jelitkowski',
+      address: 'Jelitkowska 13',
+	  lat:54.425141,
+	  lon:18.594479,
       type: Type.find(8),
       town: Town.find(3),
       description: 'Park położony na zachodniej części Gdańska o powierzchni 4ha'
     },
     {
       name: 'Park rozrywki Amber',
-      address: 'Lema 2',
+      address: 'aleja Grunwaldzka 229',
+	  lat:54.390618,
+	  lon:18.587585,
       type: Type.find(9),
       town: Town.find(3),
       description: 'Park rozyrywki znajdującej się w przedwojennej fabryce cegieł',
@@ -838,6 +928,8 @@ places = Place.create(
 	 {
       name: 'Aquapark Gdańsk',
       address: 'Zamkowa Góra 3-5',
+	  lat:54.459992,
+	  lon:18.557865,
       type: Type.find(10),
       town: Town.find(3),
       description: 'Basen sprotowy wraz z jacuzzi',
@@ -856,7 +948,9 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Bursztyn',
-      address: 'Lubicza 83',
+      address: 'aleja Zwycięstwa 12',
+	  lat:54.370243,
+	  lon:18.631619,
       type: Type.find(10),
       town: Town.find(3),
       description: 'Basen odnowy biologicznej z wodami termalnymi',
@@ -879,7 +973,9 @@ places = Place.create(
     },
 	{
       name: 'Muzeum Krakowskie',
-      address: 'Jagiellońska 3',
+      address: 'Krupnicza 26',
+	  lat:50.063343,
+	  lon:19.928308,
       type: Type.find(1),
       town: Town.find(4),
       description: 'Zbiory przedstawiające średniowieczny Kraków',
@@ -899,6 +995,8 @@ places = Place.create(
     {
       name: 'Restaucracja Wawel',
       address: 'Wawelska 3',
+	  lat:50.053253,
+	  lon:19.934556,
       type: Type.find(2),
       town: Town.find(4),
       description: 'Ekskluzywna restauracja znajdująca się pod samym zamkiem Wawelskim',
@@ -917,7 +1015,9 @@ places = Place.create(
     },
 	{
       name: 'Restaucracja Krakus',
-      address: 'Literatów 133',
+      address: 'Limanowskiego 16',
+	  lat:50.044913,
+	  lon:19.953066,
       type: Type.find(2),
       town: Town.find(4),
       description: 'Restauracja serwująca dania orientalne',
@@ -936,7 +1036,9 @@ places = Place.create(
     },
 	{
       name: 'Restaucracja Orient',
-      address: 'Niemiecka 83',
+      address: 'Sławkowska 13',
+	  lat:50.064296,
+	  lon:19.938010,
       type: Type.find(2),
       town: Town.find(4),
       description: 'Restauracja serwująca oryginalny Kebab turecki',
@@ -956,13 +1058,17 @@ places = Place.create(
      {
       name: 'Plac zabaw Krakusek',
       address: 'Podzamcza 72',
+	  lat:50.061261,
+	  lon:19.916487,
       type: Type.find(3),
       town: Town.find(4),
       description: 'Osiedlowy plac zabaw dla dzieci w wieku 8-14 lat'
     },
     {
-      name: 'Teatr Krakowski',
-      address: 'Krakowska 23',
+      name: 'Teatr Współczesny',
+      address: 'Starowiślna 21',
+	  lat:50.057240,
+	  lon:19.944380,
       type: Type.find(4),
       town: Town.find(4),
       description: 'Teatr przy ul.Krakowskiej mający 100 letnią rodzinną tradycję',
@@ -981,7 +1087,9 @@ places = Place.create(
     },
     {
       name: 'Filharmonia Krakowska',
-      address: 'Krakowska 1',
+      address: 'Zwierzyniecka 1',
+	  lat:50.058910,
+	  lon: 19.932978,
       type: Type.find(5),
       town: Town.find(4),
       description: 'Najstarsza filharmonia w Polsce o długoletniej tradycji',
@@ -1000,7 +1108,9 @@ places = Place.create(
     },
 	{
       name: 'Stadion Wisły Kraków',
-      address: 'Reymana 12',
+      address: 'Reymonta 22',
+	  lat:50.063714,
+	  lon:19.911788,
       type: Type.find(6),
       town: Town.find(4),
       description: 'Oficjalny stadion krakowskiej Wisły',
@@ -1008,17 +1118,19 @@ places = Place.create(
         [
           {
             user: User.find(1),
-            content: 'Nie przychod jak jesteś z innego miasta, można dostać niezły wpier!@#'
+            content: 'Nie przychodzić jak jesteś z innego miasta, można dostać niezły wpier!@#'
           }
         ]
       )
     },
 	{
-      name: 'Kino Polonia',
-      address: 'Serbska 24',
+      name: 'Kino ARS',
+      address: 'Św. Tomasza 11',
+	  lat:50.063202,
+	  lon:19.938411,
       type: Type.find(7),
       town: Town.find(4),
-      description: 'Kino mieszczące się w Galeri Krakowskiej',
+      description: 'Kino mieszczące się przy Galeri Krakowskiej',
       reviews: Review.create(
         [
           {
@@ -1033,16 +1145,20 @@ places = Place.create(
       )
     },
 	{
-      name: 'Park',
-      address: 'Gdańska 67',
+      name: 'Park Strzelecki',
+      address: 'Zygmunta Augusta 7',
+	  lat:50.065925,
+	  lon:19.950118,
       type: Type.find(8),
       town: Town.find(4),
       description: 'Park mieszczący się obok Biznes Parku'
 
     },
 	{
-      name: 'Park Pan Tadeusz',
-      address: 'Urocza 671',
+      name: 'Park Jordana',
+      address: 'aleja 3 Maja 11',
+	  lat:50.063424,
+	  lon:19.916257,
       type: Type.find(8),
       town: Town.find(4),
       description: 'Park otwarty w ciągu dnia dla wszsytkich mieszkańców Krakowa',
@@ -1066,7 +1182,9 @@ places = Place.create(
     },
     {
       name: 'Park Rozrywki Krakus',
-      address: 'Chorwacka 91',
+      address: 'Stanisława Żółkiewskiego 17',
+	  lat:50.059328,
+	  lon:19.957961,
       type: Type.find(9),
       town: Town.find(4),
       description: 'Park rozrywki dla dorosłych - paintball, gokarty, wirtualna rzecywistość',
@@ -1085,10 +1203,12 @@ places = Place.create(
     },
 	 {
       name: 'Aquapark Kraków',
-      address: 'Alpejska 21',
+      address: 'Dobrego Pasterza 126',
+	  lat:50.088965,
+	  lon:19.982937,
       type: Type.find(10),
       town: Town.find(4),
-      description: 'Największy park wodny na Dolnym Sląsku',
+      description: 'Największy park wodny w Małopolsce',
       reviews: Review.create(
         [
           {

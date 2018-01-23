@@ -6,4 +6,6 @@ json.places @current_town.places do |place|
   json.type place.type.name
   json.description place.description
   json.review_count place.reviews.count
+  json.lat place.lat
+  json.lon place.lon
 end

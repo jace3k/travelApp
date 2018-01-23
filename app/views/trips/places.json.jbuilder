@@ -6,4 +6,6 @@ json.places @current_trip.places do |place|
   json.town place.town.name
   json.type place.type.name
   json.description place.description
+  json.lat place.lat
+  json.lon place.lon
 end

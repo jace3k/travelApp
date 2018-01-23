@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180122210250) do
+ActiveRecord::Schema.define(version: 20180123132233) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20180122210250) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
+    t.float    "lat"
+    t.float    "lon"
   end
 
   add_index "places", ["town_id"], name: "index_places_on_town_id"
