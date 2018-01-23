@@ -8,6 +8,7 @@ class TripsController < ApplicationController
   # GET /trips.json
   def index
     @trips = Trip.all
+    @now = Date.today
   end
 
   # GET /trips/1
