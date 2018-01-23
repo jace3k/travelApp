@@ -1,5 +1,5 @@
 json.current_user current_user.username
-json.reviews @place.reviews.sort_by(&:created_at) do |review|
+json.reviews @place.reviews do |review|
   json.id review.id
   json.author review.user.username
   json.content review.content
