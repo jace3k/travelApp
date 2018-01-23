@@ -61,7 +61,7 @@ class TripsController < ApplicationController
   # DELETE /trips/1
   # DELETE /trips/1.json
   def destroy
-    @trip = Trip.find_by(id: params[:trip])
+    @trip = Trip.find(params[:trip])
     if current_user.trips.include?(@trip)
       @trip.destroy
       render json: {message: "usunięto tripa"}

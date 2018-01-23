@@ -39,6 +39,8 @@ gem 'json', '1.8.1'
 
 gem 'gcm'
 
+gem 'validates_timeliness', '~> 4.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
