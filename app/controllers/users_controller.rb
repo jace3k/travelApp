@@ -78,9 +78,9 @@ class UsersController < ApplicationController
     if @user != nil
       @user.device_id = params[:device_id]
       @user.save
-      render json: {}, status: :ok
+      render json: {msg: 'ok'}, status: :ok
     else
-      render json: {}, status: :not_found
+      render json: {msg: 'nie znaleziono usera po takim tokenie'}, status: :ok
     end
   end
 
