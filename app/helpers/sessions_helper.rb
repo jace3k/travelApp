@@ -43,18 +43,6 @@ module SessionsHelper
     registration_ids= [user.device_id] # an array of one or more client registration tokens
     options = { data: { msg: msg, trip_id: trip_id } }
     response = gcm.send(registration_ids, options)
-    if response
-      render json: {
-        message: response
-      }
-    else
-      render json: {
-        message: 'error'
-      }
-    end
   end
-
-
-
 
 end
