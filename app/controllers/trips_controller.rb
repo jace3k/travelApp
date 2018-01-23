@@ -79,7 +79,7 @@ class TripsController < ApplicationController
       unless @trip.joined?(user)
         @trip.users.append(user)
         # user.device_id = @uksz_device
-        send_notify('Zostałeś dodany do wycieczki!', @trip.id, user)
+        send_notify('Zostałeś dodany do ' + @trip.name, @trip.id, user, 'TRIP_ADD_NOTIFY')
         render json: { message: 'dodano użytkownika'}, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik już należy do tego tripa')
@@ -96,6 +96,7 @@ class TripsController < ApplicationController
     if user
       if @trip.joined?(user)
         @trip.users.delete(user)
+        send_notify('Zostałeś usunięty z ' + @trip.name, @trip.id, user, 'TRIP_DEL_NOTIFY')
         render json: { message: 'wywalono ziomeczka.' }, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik nie należy do tego tripa')
@@ -111,12 +112,15 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     if current_user.trips.include?(@trip)
       begin
-        @placeid = Place.find(params[:place])
-        unless @trip.places.include?(@placeid)
+        @place = Place.find(params[:place])
+        unless @trip.places.include?(@place)
+          @trip.places.append(@place)
 
-          @trip.places.append(@placeid)
+          @trip.users do |user|
+            send_notify('Do ' + @trip.name + ' zostało dodane ' + @place.name + '!', @trip.id, user, 'ADD_PLACE_NOTIFY')
+          end
 
-          render json: { message: 'Dodano miejsce.'}, status: :ok
+        render json: { message: 'Dodano miejsce.'}, status: :ok
         else
           @trip.errors.add(:trip, 'to miejsce już zostało dodane')
           render json: { errors: @trip.errors }, status: :conflict
@@ -137,9 +141,14 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     if current_user.trips.include?(@trip)
       begin
-        @placeid = Place.find(params[:place])
-        if @trip.places.include?(@placeid)
-          @trip.places.delete(@placeid)
+        @place = Place.find(params[:place])
+        if @trip.places.include?(@place)
+          @trip.places.delete(@place)
+
+          @trip.users do |user|
+            send_notify(@current_user.username + ' usunął' + @place.name + 'z ' + @trip.name + '!', @trip.id, user, 'DEL_PLACE_NOTIFY')
+          end
+
           render json: { message: 'usunieto miejsce.'}, status: :ok
         else
           @trip.errors.add(:trip, 'nie ma takiego miejsca')

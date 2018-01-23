@@ -4,7 +4,8 @@ json.type_name @place.type.name
 json.lat @place.lat
 json.lon @place.lon
 json.reviews @place.reviews do |review|
-  json.user_id review.user_id
+  json.author_id review.user.id
+  json.author review.user.username
   json.created_at review.created_at.strftime("%Y/%m/%d %H:%M")
   json.content review.content
 end

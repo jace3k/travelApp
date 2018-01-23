@@ -1,4 +1,3 @@
-json.current_user current_user.name
 json.posts @current_trip.posts do |post|
   json.id post.id
   json.author post.user.username
