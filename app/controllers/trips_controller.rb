@@ -80,7 +80,7 @@ class TripsController < ApplicationController
       unless @trip.joined?(user)
         @trip.users.append(user)
         # user.device_id = @uksz_device
-        send_notify(user.username + ' dodał cię!', @trip, user, 1)
+        send_notify(@current_user.username + ' dodał cię!', @trip, user, 1)
         render json: { message: 'dodano użytkownika'}, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik już należy do tego tripa')

@@ -53,6 +53,10 @@ module SessionsHelper
     @notify.message = msg
     @notify.notify_type = type
     @notify.save
+    #@user = User.find(user.id)
+    #@user.notifies.append(@notify)
+    #@user.save
+    p 'notify: ' + user.username
   end
 
 end

@@ -41,6 +41,8 @@ gem 'gcm'
 
 gem 'validates_timeliness', '~> 4.0'
 
+gem 'rspec-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

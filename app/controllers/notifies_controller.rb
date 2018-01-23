@@ -1,6 +1,6 @@
 class NotifiesController < ApplicationController
   before_action :set_notify, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_token
   # GET /notifies
   # GET /notifies.json
   def index
