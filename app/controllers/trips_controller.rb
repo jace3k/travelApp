@@ -80,7 +80,7 @@ class TripsController < ApplicationController
       unless @trip.joined?(user)
         @trip.users.append(user)
         # user.device_id = @uksz_device
-        send_notify(@user.username + ' dodał cię!', @trip, user, 1)
+        send_notify(user.username + ' dodał cię!', @trip, user, 1)
         render json: { message: 'dodano użytkownika'}, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik już należy do tego tripa')
@@ -116,12 +116,15 @@ class TripsController < ApplicationController
         @place = Place.find(params[:place])
         unless @trip.places.include?(@place)
           @trip.places.append(@place)
-
+          render json: { message: 'Dodano miejsce.'}, status: :ok
+          
           @trip.users.each do |user|
-            send_notify('Dodano ' + @place.name + '!', @trip, user, 4)
+            if user != @current_user
+              send_notify(@current_user.username + ' dodał ' + @place.name + '!', @trip, user, 4)
+            end
           end
 
-        render json: { message: 'Dodano miejsce.'}, status: :ok
+
         else
           @trip.errors.add(:trip, 'to miejsce już zostało dodane')
           render json: { errors: @trip.errors }, status: :conflict
@@ -145,12 +148,15 @@ class TripsController < ApplicationController
         @place = Place.find(params[:place])
         if @trip.places.include?(@place)
           @trip.places.delete(@place)
+          render json: { message: 'usunieto miejsce.'}, status: :ok
 
           @trip.users.each do |user|
-            send_notify(@current_user.username + ' usunął' + @place.name + '!', @trip, user, 5)
+            if user != @current_user
+              send_notify(@current_user.username + ' usunął ' + @place.name + '!', @trip, user, 5)
+            end
           end
 
-          render json: { message: 'usunieto miejsce.'}, status: :ok
+
         else
           @trip.errors.add(:trip, 'nie ma takiego miejsca')
           render json: { errors: @trip.errors }, status: :conflict
