@@ -117,14 +117,12 @@ class TripsController < ApplicationController
         unless @trip.places.include?(@place)
           @trip.places.append(@place)
           render json: { message: 'Dodano miejsce.'}, status: :ok
-          
+
           @trip.users.each do |user|
             if user != @current_user
               send_notify(@current_user.username + ' dodał ' + @place.name + '!', @trip, user, 4)
             end
           end
-
-
         else
           @trip.errors.add(:trip, 'to miejsce już zostało dodane')
           render json: { errors: @trip.errors }, status: :conflict
