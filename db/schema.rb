@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123132233) do
+ActiveRecord::Schema.define(version: 20180123173859) do
+
+  create_table "notifies", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.string   "message"
+    t.integer  "notify_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifies", ["trip_id"], name: "index_notifies_on_trip_id"
+  add_index "notifies", ["user_id"], name: "index_notifies_on_user_id"
 
   create_table "places", force: true do |t|
     t.string   "name"

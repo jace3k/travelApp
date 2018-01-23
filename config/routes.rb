@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :notifies
+
   # get      'sessions/new'
   root     'static#index'
 

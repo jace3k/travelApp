@@ -80,7 +80,7 @@ class TripsController < ApplicationController
       unless @trip.joined?(user)
         @trip.users.append(user)
         # user.device_id = @uksz_device
-        send_notify('Zostałeś dodany do ' + @trip.name, @trip.id, user, 'TRIP_ADD_NOTIFY')
+        send_notify(@user.username + ' dodał cię!', @trip, user, 1)
         render json: { message: 'dodano użytkownika'}, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik już należy do tego tripa')
@@ -97,7 +97,7 @@ class TripsController < ApplicationController
     if user
       if @trip.joined?(user)
         @trip.users.delete(user)
-        send_notify('Zostałeś usunięty z ' + @trip.name, @trip.id, user, 'TRIP_DEL_NOTIFY')
+        send_notify(@current_user.username + ' usunął cię!', @trip, user, 2)
         render json: { message: 'wywalono ziomeczka.' }, status: :ok
       else
         @trip.errors.add(:username, 'użytkownik nie należy do tego tripa')
@@ -117,8 +117,8 @@ class TripsController < ApplicationController
         unless @trip.places.include?(@place)
           @trip.places.append(@place)
 
-          @trip.users do |user|
-            send_notify('Do ' + @trip.name + ' zostało dodane ' + @place.name + '!', @trip.id, user, 'ADD_PLACE_NOTIFY')
+          @trip.users.each do |user|
+            send_notify('Dodano ' + @place.name + '!', @trip, user, 4)
           end
 
         render json: { message: 'Dodano miejsce.'}, status: :ok
@@ -146,8 +146,8 @@ class TripsController < ApplicationController
         if @trip.places.include?(@place)
           @trip.places.delete(@place)
 
-          @trip.users do |user|
-            send_notify(@current_user.username + ' usunął' + @place.name + 'z ' + @trip.name + '!', @trip.id, user, 'DEL_PLACE_NOTIFY')
+          @trip.users.each do |user|
+            send_notify(@current_user.username + ' usunął' + @place.name + '!', @trip, user, 5)
           end
 
           render json: { message: 'usunieto miejsce.'}, status: :ok
