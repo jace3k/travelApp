@@ -11,6 +11,8 @@ class Trip < ActiveRecord::Base
 
   validates_date :end_date, :on_or_after => :start_date
 
+  validates :town_id, presence: true
+
   def joined?(user)
     self.users.include?(user)
   end

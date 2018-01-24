@@ -40,7 +40,10 @@ class TripsController < ApplicationController
         format.json { render json: {message: 'Utworzono tripa.', admin_id: @trip.user_id}, status: :ok }
       else
         format.html { render :new }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
+        format.json {
+          render json:
+          {errors: @trip.errors}, status: :unprocessable_entity 
+        }
       end
     end
   end
