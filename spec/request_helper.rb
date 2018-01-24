@@ -24,5 +24,7 @@ module RequestHelper
       end_date: "12/01/2018",
       user_id: 1,
     )
-
+    trip.save!
     
+  end
+end
